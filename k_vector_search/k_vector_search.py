@@ -1,16 +1,41 @@
-# TODO: Add in some reference information here
+#
+# ------------------
+# k_vector_search.py
+# ------------------
+#
+# This Python file contains the definition of the `kVector` class for the
+# identification of optimal k vector(s) for explaining the experimentally
+# observed satellite peaks in powder diffraction patterns. Provided the
+# refined nucleus structure and the extracted positions of those
+# satellite peaks, we first identify the optimal k-path to search along.
+# For such a purpose, we were using the k-path finder as reported by
+# Y. Hinuma, et al.,
+#
+# -------------------------------------------------
+# http://dx.doi.org/10.1016/j.commatsci.2016.10.015
+# -------------------------------------------------
+#
+# We first search those high symmetry points along the suggested
+# k-path, then along the path and finally, if specified to, search
+# across the whole first Brillouin zone.
+#
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+# Yuanpeng Zhang & Joe Paddison @ Mar-03-2024
+# SNS-HFIR, ORNL
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+#
 import seekpath
 import numpy as np
 
 
 class kVector:
-    """For k-vector search, given the input structure, the nucleus and satellite
-    diffraction peaks.
+    """For k-vector search, given the input structure, the nucleus and
+    satellite diffraction peaks.
 
     :param bravfSym: Bravais lattice symbol
-    :param cell: a `3x3` list of floats (cell[0] is the first lattice vector, …)
-                     The cell vectors should be corresponding to the primitive
-                     following the ITA convention.
+    :param cell: a `3x3` list of floats (cell[0] is the first lattice vector,
+                 etc.) The cell vectors should be corresponding to the
+                 primitive following the ITA convention.
     :param positions: a `Nx3` list of floats with the atomic coordinates in
                       fractional coordinates (i.e., w.r.t. the cell vectors)
     :param numbers: a length-`N` list with integers identifying uniquely the
@@ -73,63 +98,63 @@ class kVector:
                 [0, 0, 1]
             ]
         ),
-        "cF": 1/2 * np.array(
+        "cF": 1 / 2 * np.array(
             [
                 [0, 1, 1],
                 [1, 0, 1],
                 [1, 1, 0]
             ]
         ),
-        "oF": 1/2 * np.array(
+        "oF": 1 / 2 * np.array(
             [
                 [0, 1, 1],
                 [1, 0, 1],
                 [1, 1, 0]
             ]
         ),
-        "cI": 1/2 * np.array(
+        "cI": 1 / 2 * np.array(
             [
                 [-1, 1, 1],
                 [1, -1, 1],
                 [1, 1, -1]
             ]
         ),
-        "tI": 1/2 * np.array(
+        "tI": 1 / 2 * np.array(
             [
                 [-1, 1, 1],
                 [1, -1, 1],
                 [1, 1, -1]
             ]
         ),
-        "oI": 1/2 * np.array(
+        "oI": 1 / 2 * np.array(
             [
                 [-1, 1, 1],
                 [1, -1, 1],
                 [1, 1, -1]
             ]
         ),
-        "hR": 1/3 * np.array(
+        "hR": 1 / 3 * np.array(
             [
                 [2, -1, -1],
                 [1, 1, -2],
                 [1, 1, 1]
             ]
         ),
-        "oC": 1/2 * np.array(
+        "oC": 1 / 2 * np.array(
             [
                 [1, 1, 0],
                 [-1, 1, 0],
                 [0, 0, 2]
             ]
         ),
-        "oA": 1/2 * np.array(
+        "oA": 1 / 2 * np.array(
             [
                 [0, 0, 2],
                 [1, 1, 0],
                 [-1, 1, 0]
             ]
         ),
-        "mC": 1/2 * np.array(
+        "mC": 1 / 2 * np.array(
             [
                 [1, -1, 0],
                 [1, -1, 1],
@@ -138,19 +163,9 @@ class kVector:
         )
     }
 
-    
-    def __init__(
-            self,
-            bravfSym: str,
-            cell: list,
-            positions: list,
-            numbers: list,
-            nucPeaks: list,
-            superPeaks: list,
-            threshold: float,
-            option: int = 0,
-            kstep: float = 0.01
-        ):
+    def __init__(self, bravfSym: str, cell: list, positions: list,
+                 numbers: list, nucPeaks: list, superPeaks: list,
+                 threshold: float, option: int = 0, kstep: float = 0.01):
         self.bravfSym = bravfSym
         self.cell = cell
         self.positions = positions
@@ -160,19 +175,34 @@ class kVector:
         self.threshold = threshold
         self.option = option
         self.kstep = kstep
-        
 
     def kpathFinder(self) -> dict:
         """Provided the structure inputs, the routine will be collecting the
         inputs into a structure tuple which will be fed into the `get_path`
         routine in the `seekpath` module. The special k points and the k-path
         will be returned.
-        
+
         :return: the dictionary containing the k-points, k-path and the
-                 reciprocal space primitive lattice vectors. 
+                 reciprocal space primitive lattice vectors.
         """
         structure = (self.cell, self.positions, self.numbers)
-        k_info_tmp = seekpath.get_path(structure, True)
+
+        # the inputs for the `seekpath.get_path` routine assumes no symmetry
+        # and internally in the routine, the symmetry would be identified
+        # automatically using the `spglib` module. For the symmetry
+        # identification, we need to specify the tolerance (for atomic
+        # coordinates, etc.). Here, for our purpose, we know exactly what
+        # the symmetry is for our input structure, we were to tune the
+        # tolerance value until the expected Bravais lattice type is
+        # identified.
+        sym_tol = 1.E-5
+        while True:
+            k_info_tmp = seekpath.get_path(structure, True, symprec=sym_tol)
+            if k_info_tmp["bravais_lattice"] == self.bravfSym:
+                break
+            else:
+                sym_tol *= 2.
+
         k_info = {
             "point_coords": k_info_tmp["point_coords"],
             "path": k_info_tmp["path"],
@@ -180,9 +210,8 @@ class kVector:
                 "reciprocal_primitive_lattice"
             ]
         }
-    
-        return k_info
 
+        return k_info
 
     def hklConvToPrim(self, hkl: list) -> list:
         """Convert the hkl indeces in the conventional cell setting to the
@@ -197,8 +226,7 @@ class kVector:
             kVector.transMatrix[self.bravfSym]
         )
 
-        return list(prim_hkl)
-
+        return list(prim_hkl[0])
 
     def kVecPrimToConv(self, k_vec: list) -> list:
         """Convert the k vector in the reciprocal primitive lattice setting to
@@ -215,10 +243,10 @@ class kVector:
             inv_trans_matrix
         )
 
-        return k_vec_conv
+        return list(k_vec_conv[0])
 
-
-    def pointOnVector(s_point: list, e_point: list, distance: float) -> list:
+    def pointOnVector(self, s_point: list, e_point: list,
+                      distance: float) -> list:
         """Grab the coordinate of a point on a vector specified by the starting
         and ending points. The distance from the point on the vector to the
         starting point should be given as the parameter.
@@ -236,10 +264,9 @@ class kVector:
 
         return [xp, yp, zp]
 
-
-    def insIntoSortedList(lst: list, new_val: float) -> tuple:
+    def insIntoSortedList(self, lst: list, new_val: float) -> tuple:
         """Insert a new entry into the ascendingly sorted list.
-        
+
         :param lst: an ascendingly sorted list
         :param new_val: the new entry to be inserted into the sorted list
         :return: tuple containing the new sorted list and the index of the new
@@ -255,16 +282,10 @@ class kVector:
 
         return (lst, ind)
 
-
-    def updateCandidateList(
-            self,
-            kpoint: list,
-            k_opt_list: list,
-            k_opt_dist:list,
-            try_neg: bool
-        ) -> tuple:
+    def updateCandidateList(self, kpoint: list, k_opt_list: list,
+                            k_opt_dist: list, try_neg: bool) -> tuple:
         """For a given k point, we want to first cycle through all the
-        satelliete peaks. For each satellite peak, we want to find out which
+        satellite peaks. For each satellite peak, we want to find out which
         nucleus peak that the satellite peak should be attached to, meaning the
         nucleus peak for which the hkl plus the trial k vector would yield the
         minimum distance from the observed peak position of the satellite peak
@@ -275,8 +296,8 @@ class kVector:
         the given k point will be inserted into the corresponding location in
         the top candidates list of the k vectors. If the `indicator distance`
         happens to be smaller than the uncertainty of peak positions (which is
-        determined by the instrument resolution), only the top candidate will be
-        returned.
+        determined by the instrument resolution), only the top candidate will
+        be returned.
 
         :param kpoint: the trial k vector
         :param k_opt_list: list of top candidates of k vectors
@@ -295,8 +316,10 @@ class kVector:
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
 
         speaks_closest_dist = list()
+        speaks_closest_hkl = list()
         for sp in self.superPeaks:
             dist_min = np.Inf
+            hkl_min = list()
             for nucp in self.nucPeaks:
                 hkl_conv = nucp[:3]
                 hkl_prim = self.hklConvToPrim(hkl_conv)
@@ -317,6 +340,7 @@ class kVector:
                 sp_rel_diff = abs(sp_norm_d - sp) / sp
                 if sp_rel_diff < dist_min:
                     dist_min = sp_rel_diff
+                    hkl_min = hkl_conv
                 if try_neg:
                     kpoint_neg = [-item for item in kpoint]
                     sp_norm = np.array(
@@ -336,7 +360,9 @@ class kVector:
                     sp_rel_diff = abs(sp_norm_d - sp) / sp
                     if sp_rel_diff < dist_min:
                         dist_min = sp_rel_diff
+                        hkl_min = hkl_conv
             speaks_closest_dist.append(dist_min)
+            speaks_closest_hkl.append(hkl_min)
 
         if max(speaks_closest_dist) <= self.threshold:
             k_opt_list = [kpoint]
@@ -351,7 +377,6 @@ class kVector:
 
             return (k_opt_list[:10], k_opt_new[0][:10])
 
-
     def kOptFinder(self) -> list:
         """This is the kernel of the class, defining the method for searching
         over the Brillouin zone for optimal k vector that best explains the
@@ -363,11 +388,11 @@ class kVector:
                  observed positions of those satellite peaks smaller than the
                  uncertainty of peak positions (which is determined by the
                  instrument resolution), only one candiate will be returned.
-                 Otherwise, top 10 candidates will be returned. 
+                 Otherwise, top 10 candidates will be returned.
         """
         hs_points = self.kpathFinder()["point_coords"]
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
-        
+
         k_opt_list = list()
         k_opt_dist = list()
 
@@ -377,9 +402,9 @@ class kVector:
             raise ValueError("err_msg")
         else:
             if len(self.nucPeaks) >= len(self.superPeaks):
-                # search over those high symmetry points on the suggested k path
-                # In this case, we don't need to consider their negatives as
-                # they are equivalent.
+                # search over those high symmetry points on the suggested k
+                # path In this case, we don't need to consider their negatives
+                # as they are equivalent.
                 for _, kpoint in hs_points.items():
                     k_opt_tmp = self.updateCandidateList(
                         kpoint,
