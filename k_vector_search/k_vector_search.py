@@ -28,6 +28,66 @@ import seekpath
 import numpy as np
 
 
+def unique_id_gen(string_list: list) -> list:
+    """Generate unique IDs for strings included in the string list and the same
+    string will be assigned with the same ID.
+
+    :param string_list: list of strings
+    :return: list of integer IDs
+    """
+    unique_integer = 1
+    replaced_strings = {}
+    output_list = []
+
+    for string in string_list:
+        if string in replaced_strings:
+            output_list.append(replaced_strings[string])
+        else:
+            replaced_strings[string] = unique_integer
+            output_list.append(unique_integer)
+            unique_integer += 1
+
+    return output_list
+
+
+def lat_params_to_vec(lat_params: list) -> list:
+    """Construct lattice vectors from lattice parameters, according to the
+    convention as detailed in the following post,
+
+    https://iris2020.net/2024-03-04-latt_params_to_latt_vecs/
+
+    :param lat_params: list of lattice parameters a, b, c, alpha, beta
+                       and gamma. Angles should be given in degree.
+    :return: lattice vectors in the list form, namely, the a, b and c lattice
+             vectors given in the Cartesian coordinate
+    """
+    a_norm = lat_params[0]
+    b_norm = lat_params[1]
+    c_norm = lat_params[2]
+    alpha = np.deg2rad(lat_params[3])
+    beta = np.deg2rad(lat_params[4])
+    gamma = np.deg2rad(lat_params[5])
+
+    c = [0., 0., c_norm]
+    b = [
+        0.,
+        b_norm * np.sin(alpha),
+        b_norm * np.cos(alpha)
+    ]
+    az = a_norm * np.cos(beta)
+    cos_al = np.cos(alpha)
+    cos_be = np.cos(beta)
+    cos_ga = np.cos(gamma)
+    sin_al = np.sin(alpha)
+    top = a_norm * (cos_ga - cos_al * cos_be)
+    bottom = sin_al
+    ay = top / bottom
+    ax = np.sqrt(a_norm**2. - ay**2. - az**2.)
+    a = [ax, ay, az]
+
+    return [a, b, c]
+
+
 class kVector:
     """For k-vector search, given the input structure, the nucleus and
     satellite diffraction peaks.
@@ -464,3 +524,4 @@ class kVector:
                     warn_msg += "of the satellite peaks, thus skipping the "
                     warn_msg += "search over the high symmetry points."
                     print(f"[Warning] {warn_msg}")
+

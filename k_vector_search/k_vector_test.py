@@ -1,10 +1,11 @@
-from k_vector_search import kVector
+import k_vector_search as kvs
+import numpy as np
 import json
 
-#+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 #               ||||| Inputs |||||
 #               vvvvv        vvvvv
-#+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 #
 # The `seekpath` method for suggesting the k-path
 # to search over requires the structure input. We
@@ -90,13 +91,13 @@ threshold = 0.008
 
 # the Bravais lattice type of the nucleus structure
 brav_type = "hR"
-#+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 #               ^^^^^ Inputs ^^^^^
 #               |||||        |||||
-#+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+# +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 if __name__ == "__main__":
-    k_search = kVector(
+    k_search = kvs.kVector(
         brav_type,
         pcell,
         ppos,
@@ -106,10 +107,88 @@ if __name__ == "__main__":
         threshold
     )
 
+    # test the unique ID generation routine
+    atom_types = ["Cr", "Cr", "Cr", "Sb", "Sb", "Se"]
+    atom_types_id = kvs.unique_id_gen(atom_types)
+    print("Unique ID generation\n===")
+    print("Atom types present: ", atom_types)
+    print("Atom type IDs: ", atom_types_id)
+
+    # test the lattice vectors construction routine
+    #
+    # cubic lattice
+    cell_params = [5., 5., 5., 90, 90., 90.]
+    latt_vec = kvs.lat_params_to_vec(cell_params)
+    print("\nLattice vectors construction\n===")
+    print("Cell parameters: ", cell_params)
+    print("Lattice vectors: ", latt_vec)
+    print("|a| = ", np.linalg.norm(np.array(latt_vec[0])))
+    print("|b| = ", np.linalg.norm(np.array(latt_vec[1])))
+    print("|c| = ", np.linalg.norm(np.array(latt_vec[2])))
+    bc_dot_P = np.dot(np.array(latt_vec[1]), np.array(latt_vec[2]))
+    ac_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[2]))
+    ab_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[1]))
+    a_norm = np.linalg.norm(np.array(latt_vec[0]))
+    b_norm = np.linalg.norm(np.array(latt_vec[1]))
+    c_norm = np.linalg.norm(np.array(latt_vec[2]))
+    print("alpha = ", np.rad2deg(np.arccos(bc_dot_P / (b_norm * c_norm))))
+    print("beta = ", np.rad2deg(np.arccos(ac_dot_P / (a_norm * c_norm))))
+    print("gamma = ", np.rad2deg(np.arccos(ab_dot_P / (a_norm * b_norm))))
+
+    # rhombohedral lattice
+    cell_params = [
+        5.,
+        5.,
+        10.,
+        90.,
+        90.,
+        120.
+    ]
+    latt_vec = kvs.lat_params_to_vec(cell_params)
+    print("\nCell parameters: ", cell_params)
+    print("Lattice vectors: ", latt_vec)
+    print("|a| = ", np.linalg.norm(np.array(latt_vec[0])))
+    print("|b| = ", np.linalg.norm(np.array(latt_vec[1])))
+    print("|c| = ", np.linalg.norm(np.array(latt_vec[2])))
+    bc_dot_P = np.dot(np.array(latt_vec[1]), np.array(latt_vec[2]))
+    ac_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[2]))
+    ab_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[1]))
+    a_norm = np.linalg.norm(np.array(latt_vec[0]))
+    b_norm = np.linalg.norm(np.array(latt_vec[1]))
+    c_norm = np.linalg.norm(np.array(latt_vec[2]))
+    print("alpha = ", np.rad2deg(np.arccos(bc_dot_P / (b_norm * c_norm))))
+    print("beta = ", np.rad2deg(np.arccos(ac_dot_P / (a_norm * c_norm))))
+    print("gamma = ", np.rad2deg(np.arccos(ab_dot_P / (a_norm * b_norm))))
+
+    # triclinic lattice
+    cell_params = [
+        5.,
+        6.,
+        7.,
+        91.,
+        95.,
+        112.
+    ]
+    latt_vec = kvs.lat_params_to_vec(cell_params)
+    print("\nCell parameters: ", cell_params)
+    print("Lattice vectors: ", latt_vec)
+    print("|a| = ", np.linalg.norm(np.array(latt_vec[0])))
+    print("|b| = ", np.linalg.norm(np.array(latt_vec[1])))
+    print("|c| = ", np.linalg.norm(np.array(latt_vec[2])))
+    bc_dot_P = np.dot(np.array(latt_vec[1]), np.array(latt_vec[2]))
+    ac_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[2]))
+    ab_dot_P = np.dot(np.array(latt_vec[0]), np.array(latt_vec[1]))
+    a_norm = np.linalg.norm(np.array(latt_vec[0]))
+    b_norm = np.linalg.norm(np.array(latt_vec[1]))
+    c_norm = np.linalg.norm(np.array(latt_vec[2]))
+    print("alpha = ", np.rad2deg(np.arccos(bc_dot_P / (b_norm * c_norm))))
+    print("beta = ", np.rad2deg(np.arccos(ac_dot_P / (a_norm * c_norm))))
+    print("gamma = ", np.rad2deg(np.arccos(ab_dot_P / (a_norm * b_norm))))
+
     # test the k-path search engine
     k_path = k_search.kpathFinder()
     formatted_json = json.dumps(k_path, indent=4)
-    print("k search path\n===")
+    print("\nk search path\n===")
     print(formatted_json)
 
     # test the conversion for hkl from the conventional to
