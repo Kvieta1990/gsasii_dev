@@ -1,0 +1,79 @@
+# get name of tree entry
+# G2frame.GPXtree.GetItemText(G2frame.PatternId)
+#Out  [5]: 'PWDR 11bmb_9672.xye'
+
+# find an entry by name search from top of tree (G2frame.root)
+
+Id = G2gd.GetGPXtreeItemId(G2frame,G2frame.root,'PWDR 11bmb_9672.xye')
+
+# find child of previous
+
+peakId = G2gd.GetGPXtreeItemId(G2frame,Id,'Peak List')
+
+# get peak list data
+peakdata = G2frame.GPXtree.GetItemPyData(peakId)
+peakdata['peaks'] # is a list of peaks
+peakdata['xtraPeaks'] # is a list of mag/impurity peaks
+# entry for each peak; for each peak we have
+# position, flag, area, flag, sigma, flag, gamma, flag
+
+# in a histgram so G2frame.PatternId points to main tree entry
+refDict = G2frame.GPXtree.GetItemPyData(G2gd.GetGPXtreeItemId(G2frame,G2frame.PatternId,'Reflection Lists'))
+# refDict is keyed by phase
+
+# how to generate a P1 version of a structure
+E,SGData = G2spc.SpcGroup('P 1') # generates all symmetry info for any space group
+
+# gets pointers to all used histograms and phases
+Histograms,Phases = G2frame.GetUsedHistogramsAndPhasesfromTree()
+
+Histograms.keys()
+Out  [53]: dict_keys(['PWDR PG3_42704-2_10K.dat'])
+
+Phases.keys()
+Out  [54]: dict_keys(['sm_isp_SD1110128-standardized_unitcell'])
+
+Phases['sm_isp_SD1110128-standardized_unitcell'].keys()
+Out  [55]: dict_keys(['ranId', 'General', 'Atoms', 'Drawing', 'Histograms', 'Pawley ref', 'RBModels', 'pId', 'RMC', 'ISODISTORT', 'Deformations', 'MCSA'])
+
+pname = 'sm_isp_SD1110128-standardized_unitcell'
+
+len(Phases[pname]['Atoms'])
+Out  [60]: 5
+
+import GSASIIlattice as G2lat
+import random as rand
+    Trans = np.eye(3)
+    Uvec = np.zeros(3)
+    Vvec = np.zeros(3)
+
+    Phase = Phases[pname] # pointer to original phase
+    newPhase = copy.deepcopy(Phase)
+    newPhase['ranId'] = rand.randint(0,sys.maxsize)
+    newPhase['General']['SGData'] = G2spc.SpcGroup('P 1')[1] # change space group
+    newPhase,atCodes = G2lat.TransformPhase(Phase,newPhase,Trans,Uvec,Vvec,False)
+
+len(Phases[pname]['Atoms'])
+Out  [72]: 5
+
+len(newPhase['Atoms'])
+Out  [73]: 20
+
+see https://gsas-ii.readthedocs.io/en/latest/GSASIIobj.html#atoms-table
+
+# get Gmatrix (real & recip) from cell params
+
+import GSASIIlattice 
+
+GSASIIlattice.cell2Gmat(Phase['General']['Cell'][1:7])
+Out  [84]: 
+(array([[ 1.19368652e-02, -1.76770110e-18, -5.01684063e-19],
+       [-1.76770110e-18,  6.98177205e-02, -1.21329943e-18],
+       [-5.01684063e-19, -1.21329943e-18,  5.62352473e-03]]), array([[8.37740885e+01, 2.12105963e-15, 7.47362680e-15],
+       [2.12105963e-15, 1.43230113e+01, 3.09025074e-15],
+       [7.47362680e-15, 3.09025074e-15, 1.77824416e+02]]))
+
+Phase['General']['SGData']
+
+Phase['General']['SGData']['SGLaue']
+Out  [86]: 'mmm'
