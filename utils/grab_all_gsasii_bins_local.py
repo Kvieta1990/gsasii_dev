@@ -5,6 +5,7 @@ import tarfile
 import os
 
 thetarfile = "https://github.com/GSASII/binarytest/releases/download/v1.0.1/mac_64_p3.11_n1.26.tgz"
+
 os.chdir("/Users/y8z/Dev/pyGSAS/trunk/bindist")
 
 ftpstream = urllib.request.urlopen(thetarfile)
