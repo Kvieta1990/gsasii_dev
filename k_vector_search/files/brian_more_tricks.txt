@@ -1,0 +1,20 @@
+In [1]: lol = [[1,2,3], ['x',2,'z'], [1,-1]]
+
+In [6]: [(i[1],i[0]) for i in lol]
+Out[6]: [(2, 1), (2, 'x'), (-1, 1)]
+
+In [7]: [[i[1],i[0]] for i in lol]
+Out[7]: [[2, 1], [2, 'x'], [-1, 1]]
+
+In [8]: 
+
+
+in ~/bin/G2dev
+
+#!/bin/bash
+echo "Running GSAS-II with 64 bit MambaForge Python 3.10"
+source ~/mamba310/bin/activate py310all
+python /Users/toby/boxGSASII/GSASII.py "$*"
+
+
+G2G.G2MessageBox(G2frame,'Histogram not found -- how did this happen?','Missing histogram')

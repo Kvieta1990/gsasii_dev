@@ -22,6 +22,9 @@
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 # Yuanpeng Zhang & Joe Paddison @ Mar-03-2024
 # SNS-HFIR, ORNL
+# -------------------------------------------
+# Vasile Garlea and Stuart Calder are
+# acknowledged for their useful comments.
 # +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 #
 import seekpath
@@ -524,4 +527,3 @@ class kVector:
                     warn_msg += "of the satellite peaks, thus skipping the "
                     warn_msg += "search over the high symmetry points."
                     print(f"[Warning] {warn_msg}")
-
