@@ -263,7 +263,7 @@ class kVector:
 
         return prim_hkl
 
-    def kVecPrimToConv(self, k_vec: list) -> list:
+    def kVecPrimToConv(self, k_vec: list) -> np.ndarray:
         """Convert the k vector in the reciprocal primitive lattice setting to
         that in the conventional cell setting.
 
@@ -274,11 +274,11 @@ class kVector:
             kVector.transMatrix[self.bravfSym]
         )
         k_vec_conv = np.matmul(
-            np.array([k_vec]),
+            np.array(k_vec),
             inv_trans_matrix
         )
 
-        return list(k_vec_conv[0])
+        return k_vec_conv
 
     def pointOnVector(self, s_point: list, e_point: list,
                       distance: float) -> list:
@@ -396,21 +396,26 @@ class kVector:
             satellite_peaks, self.superPeaks
         )
 
-        if max(speaks_closest_dist) <= self.threshold:
+        max_diff = -np.inf
+        for key, item in speaks_assigned.items():
+            rel_diff = abs(key - item) / key
+            if rel_diff > max_diff:
+                max_diff = rel_diff
+
+        if max_diff <= self.threshold:
             k_opt_list = [kpoint]
-            k_opt_dist = [max(speaks_closest_dist)]
-            return (k_opt_list, k_opt_dist, max(speaks_closest_dist))
+            k_opt_dist = [max_diff]
+            return (k_opt_list, k_opt_dist)
         else:
             k_opt_new = self.insIntoSortedList(
                 k_opt_dist,
-                max(speaks_closest_dist)
+                max_diff
             )
             k_opt_list.insert(k_opt_new[1], kpoint)
 
             return (
                 k_opt_list[:10],
-                k_opt_new[0][:10],
-                max(speaks_closest_dist)
+                k_opt_new[0][:10]
             )
 
     def kOptFinder(self) -> list:
@@ -423,7 +428,7 @@ class kVector:
                  the threshold, i.e., the distance between the nominal and
                  observed positions of those satellite peaks smaller than the
                  uncertainty of peak positions (which is determined by the
-                 instrument resolution), only one candiate will be returned.
+                 instrument resolution), only one candidate will be returned.
                  Otherwise, top 10 candidates will be returned.
         """
         hs_points = self.kpathFinder()["point_coords"]
@@ -451,7 +456,7 @@ class kVector:
                     )
                     k_opt_list = k_opt_tmp[0]
                     k_opt_dist = k_opt_tmp[1]
-                    found_opt = k_opt_tmp[2] <= self.threshold
+                    found_opt = k_opt_dist[0] <= self.threshold
 
                     msg = f"[Info] k point (primitive setting): [{kpoint}]. "
                     msg += f"Indicator value: {k_opt_tmp[2]}, "
@@ -507,14 +512,7 @@ class kVector:
                             )
                             k_opt_list = k_opt_tmp[0]
                             k_opt_dist = k_opt_tmp[1]
-                            found_opt = k_opt_tmp[2] <= self.threshold
-
-                            if k_opt_tmp[2] < 0.05:
-                                msg = f"[Info] k point (primitive setting): "
-                                msg += f"[{kpoint}]. "
-                                msg += f"Indicator value: {k_opt_tmp[2]}, "
-                                msg += f"threshold: {self.threshold}"
-                                print(msg)
+                            found_opt = k_opt_dist[0] <= self.threshold
 
                             if len(k_opt_list) == 1 and found_opt:
                                 return k_opt_list
@@ -546,6 +544,7 @@ class kVector:
                                 condt2 = kpoint_c[1] < 0. or kpoint_c[1] > 1.
                                 condt3 = kpoint_c[2] < 0. or kpoint_c[2] > 1.5
                                 if condt1 or condt2 or condt3:
+                                    searched += 1
                                     continue
                                 k_opt_tmp = self.updateCandidateList(
                                     kpoint,
