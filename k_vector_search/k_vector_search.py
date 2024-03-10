@@ -248,7 +248,7 @@ class kVector:
 
         return k_info
 
-    def hklConvToPrim(self, hkl: list) -> list:
+    def hklConvToPrim(self, hkl: list) -> np.ndarray:
         """Convert the hkl indeces in the conventional cell setting to the
         primitive cell setting.
 
@@ -257,11 +257,11 @@ class kVector:
                  setting.
         """
         prim_hkl = np.matmul(
-            np.array([hkl]),
+            np.array(hkl),
             kVector.transMatrix[self.bravfSym]
         )
 
-        return list(prim_hkl[0])
+        return prim_hkl
 
     def kVecPrimToConv(self, k_vec: list) -> list:
         """Convert the k vector in the reciprocal primitive lattice setting to
@@ -317,6 +317,35 @@ class kVector:
 
         return (lst, ind)
 
+    def unique_closest(self, a: list, b: list) -> dict:
+        """Assign each member in b with a unique closest member in a. For each
+        member in `b`, we need to find its closest member in `a`. If two
+        members in `b` are with the same closest member in `a`, the member in
+        `a` then should be assigned to the closer one among the two. The other
+        one then needs to find its next closest member in `a`.
+
+        :param b: the input list of which the members are to be located
+        :param a: the pool list where members in `b` will be assigned
+        :return: a dict with the keys being the member in `b` and the values
+                 being the corresponding closest member in `a`
+        """
+        differences = []
+        for b_num in b:
+            for a_num in a:
+                diff = abs(a_num - b_num)
+                differences.append((b_num, a_num, diff))
+
+        differences.sort(key=lambda x: x[2])
+
+        assigned = set()
+        closest_pairs = {}
+        for b_num, a_num, diff in differences:
+            if b_num not in closest_pairs and a_num not in assigned:
+                closest_pairs[b_num] = a_num
+                assigned.add(a_num)
+
+        return closest_pairs
+
     def updateCandidateList(self, kpoint: list, k_opt_list: list,
                             k_opt_dist: list, try_neg: bool) -> tuple:
         """For a given k point, we want to first cycle through all the
@@ -350,59 +379,27 @@ class kVector:
         """
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
 
-        speaks_closest_dist = list()
-        speaks_closest_hkl = list()
-        for sp in self.superPeaks:
-            dist_min = np.Inf
-            hkl_min = list()
-            for nucp in self.nucPeaks:
-                hkl_conv = nucp[:3]
-                hkl_prim = self.hklConvToPrim(hkl_conv)
-                sp_norm = np.array(
-                    [
-                        [
-                            hkl_prim[0] + kpoint[0],
-                            hkl_prim[1] + kpoint[1],
-                            hkl_prim[2] + kpoint[2]
-                        ]
-                    ]
-                )
-                sp_norm_cart = np.matmul(
-                    sp_norm,
-                    rep_prim_latt
-                )
-                sp_norm_d = 2. * np.pi / np.linalg.norm(sp_norm_cart)
-                sp_rel_diff = abs(sp_norm_d - sp) / sp
-                if sp_rel_diff < dist_min:
-                    dist_min = sp_rel_diff
-                    hkl_min = hkl_conv
-                if try_neg:
-                    kpoint_neg = [-item for item in kpoint]
-                    sp_norm = np.array(
-                        [
-                            [
-                                hkl_prim[0] + kpoint_neg[0],
-                                hkl_prim[1] + kpoint_neg[1],
-                                hkl_prim[2] + kpoint_neg[2]
-                            ]
-                        ]
-                    )
-                    sp_norm_cart = np.matmul(
-                        sp_norm,
-                        rep_prim_latt
-                    )
-                    sp_norm_d = 2. * np.pi / np.linalg.norm(sp_norm_cart)
-                    sp_rel_diff = abs(sp_norm_d - sp) / sp
-                    if sp_rel_diff < dist_min:
-                        dist_min = sp_rel_diff
-                        hkl_min = hkl_conv
-            speaks_closest_dist.append(dist_min)
-            speaks_closest_hkl.append(hkl_min)
+        satellite_peaks = list()
+        for nucp in self.nucPeaks:
+            hkl_conv = nucp[:3]
+            hkl_prim = self.hklConvToPrim(hkl_conv)
+            hkl_p_k = hkl_prim + np.array(kpoint)
+            d_hkl_p_k = 2. * np.pi / np.linalg.norm(hkl_p_k)
+            satellite_peaks.append(d_hkl_p_k)
+
+            if try_neg:
+                hkl_m_k = hkl_prim - np.array(kpoint)
+                d_hkl_m_k = 2. * np.pi / np.linalg.norm(hkl_m_k)
+                satellite_peaks.append(d_hkl_m_k)
+
+        speaks_assigned = self.unique_closest(
+            satellite_peaks, self.superPeaks
+        )
 
         if max(speaks_closest_dist) <= self.threshold:
             k_opt_list = [kpoint]
             k_opt_dist = [max(speaks_closest_dist)]
-            return (k_opt_list, k_opt_dist)
+            return (k_opt_list, k_opt_dist, max(speaks_closest_dist))
         else:
             k_opt_new = self.insIntoSortedList(
                 k_opt_dist,
@@ -410,7 +407,11 @@ class kVector:
             )
             k_opt_list.insert(k_opt_new[1], kpoint)
 
-            return (k_opt_list[:10], k_opt_new[0][:10])
+            return (
+                k_opt_list[:10],
+                k_opt_new[0][:10],
+                max(speaks_closest_dist)
+            )
 
     def kOptFinder(self) -> list:
         """This is the kernel of the class, defining the method for searching
@@ -440,6 +441,7 @@ class kVector:
                 # search over those high symmetry points on the suggested k
                 # path In this case, we don't need to consider their negatives
                 # as they are equivalent.
+                print("[Info] Searching over high symmetry points ...")
                 for _, kpoint in hs_points.items():
                     k_opt_tmp = self.updateCandidateList(
                         kpoint,
@@ -449,20 +451,28 @@ class kVector:
                     )
                     k_opt_list = k_opt_tmp[0]
                     k_opt_dist = k_opt_tmp[1]
+                    found_opt = k_opt_tmp[2] <= self.threshold
 
-                    if len(k_opt_list) == 1:
+                    msg = f"[Info] k point (primitive setting): [{kpoint}]. "
+                    msg += f"Indicator value: {k_opt_tmp[2]}, "
+                    msg += f"threshold: {self.threshold}"
+                    print(msg)
+
+                    if len(k_opt_list) == 1 and found_opt:
                         return k_opt_list
 
-                if self.option == 1:
+                if self.option == 1 or self.option == 2:
                     # search along the k-path
+                    print("[Info] Searching along the high symmetry path ...")
                     k_paths = self.kpathFinder()
                     for k_path in k_paths["path"]:
+                        print("[Info] k path (primitive setting): ", k_path)
                         seg_len = self.kstep
                         k_path_s = k_paths["point_coords"][k_path[0]]
                         k_path_e = k_paths["point_coords"][k_path[1]]
                         k_path_vec = np.array(
                             [
-                                [y - x] for y, x in zip(k_path_e, k_path_s)
+                                y - x for y, x in zip(k_path_e, k_path_s)
                             ]
                         )
                         k_path_vec_cart = np.matmul(
@@ -476,6 +486,19 @@ class kVector:
                                 k_path_e,
                                 seg_len
                             )
+                            inv_trans_matrix = np.linalg.inv(
+                                kVector.transMatrix[self.bravfSym]
+                            )
+                            kpoint_c = np.matmul(
+                                np.array(kpoint),
+                                inv_trans_matrix
+                            )
+                            condt1 = kpoint_c[0] < 0. or kpoint_c[0] > .5
+                            condt2 = kpoint_c[1] < 0. or kpoint_c[1] > 1.
+                            condt3 = kpoint_c[2] < 0. or kpoint_c[2] > 1.5
+                            if condt1 or condt2 or condt3:
+                                seg_len += self.kstep
+                                continue
                             k_opt_tmp = self.updateCandidateList(
                                 kpoint,
                                 k_opt_list,
@@ -484,12 +507,27 @@ class kVector:
                             )
                             k_opt_list = k_opt_tmp[0]
                             k_opt_dist = k_opt_tmp[1]
+                            found_opt = k_opt_tmp[2] <= self.threshold
 
-                            if len(k_opt_list) == 1:
+                            if k_opt_tmp[2] < 0.05:
+                                msg = f"[Info] k point (primitive setting): "
+                                msg += f"[{kpoint}]. "
+                                msg += f"Indicator value: {k_opt_tmp[2]}, "
+                                msg += f"threshold: {self.threshold}"
+                                print(msg)
+
+                            if len(k_opt_list) == 1 and found_opt:
                                 return k_opt_list
-                elif self.option == 2:
+
+                            seg_len += self.kstep
+
+                if self.option == 2:
                     # search over the whole 1st Brillouin zone
+                    print("[Info] Searching over general k points ...")
                     grid_num = int(0.5 / self.kstep) - 1
+                    total_num = grid_num**3
+                    milestone = int(total_num * 0.01)
+                    searched = 0
                     for i in range(grid_num):
                         for j in range(grid_num):
                             for m in range(grid_num):
@@ -497,6 +535,18 @@ class kVector:
                                 k_tmp = self.kstep * (j + 1)
                                 l_tmp = self.kstep * (m + 1)
                                 kpoint = [h_tmp, k_tmp, l_tmp]
+                                inv_trans_matrix = np.linalg.inv(
+                                    kVector.transMatrix[self.bravfSym]
+                                )
+                                kpoint_c = np.matmul(
+                                    np.array(kpoint),
+                                    inv_trans_matrix
+                                )
+                                condt1 = kpoint_c[0] < 0. or kpoint_c[0] > .5
+                                condt2 = kpoint_c[1] < 0. or kpoint_c[1] > 1.
+                                condt3 = kpoint_c[2] < 0. or kpoint_c[2] > 1.5
+                                if condt1 or condt2 or condt3:
+                                    continue
                                 k_opt_tmp = self.updateCandidateList(
                                     kpoint,
                                     k_opt_list,
@@ -505,13 +555,15 @@ class kVector:
                                 )
                                 k_opt_list = k_opt_tmp[0]
                                 k_opt_dist = k_opt_tmp[1]
+                                found_opt = k_opt_tmp[2] <= self.threshold
 
-                                if len(k_opt_list) == 1:
+                                searched += 1
+                                if searched % milestone == 0:
+                                    perct = (searched // milestone)
+                                    print(f"[Info] Progress: {perct}%")
+
+                                if len(k_opt_list) == 1 and found_opt:
                                     return k_opt_list
-                else:
-                    # do nothing if specified to search only those high
-                    # symmetry points
-                    pass
 
                 return k_opt_list
             else:
