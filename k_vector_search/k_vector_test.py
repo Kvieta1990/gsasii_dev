@@ -278,21 +278,41 @@ if __name__ == "__main__":
 
     # test out a general k vector case
     lambda_val = 2.4109
+    # below are the manually generated satellite peak positions, assuming the
+    # k vector of [0.33, 0.21, 1.5].
     two_thetas = [
-        14.56811,
-        29.28212,
-        30.82129,
-        33.81749,
-        38.73429,
-        40.25160,
-        42.70142,
-        50.07758,
-        51.08346,
-        54.60406,
-        56.28054,
-        59.70056,
-        60.80703
+        14.721417743638689,
+        29.173461410505855,
+        29.52121729517971,
+        33.9466045669624,
+        39.85098010652728,
+        40.4592192780807,
+        42.89866183190747,
+        50.02635081586371,
+        51.56221738619436,
+        54.73338102302482,
+        56.33546474907562,
+        59.68054643095653,
+        60.839452410781654
     ]
+
+    # below are the real experimentally observed satellite peak positions,
+    # from Joe.
+    # two_thetas = [
+    #     14.56811,
+    #     29.28212,
+    #     30.82129,
+    #     33.81749,
+    #     38.73429,
+    #     40.25160,
+    #     42.70142,
+    #     50.07758,
+    #     51.08346,
+    #     54.60406,
+    #     56.28054,
+    #     59.70056,
+    #     60.80703
+    # ]
 
     spos_gen = list()
     for two_theta in two_thetas:
@@ -334,7 +354,7 @@ if __name__ == "__main__":
     # as a double-check, we can load the dummy structure into the `seekpath`
     # web interface and it will tell us the right Bravais lattice type.
     brav_type = "hR"
-    threshold = 0.008
+    threshold = 1.E-6
 
     k_search = kvs.kVector(
         brav_type,
@@ -363,10 +383,7 @@ if __name__ == "__main__":
     #    a certain coordinate in reciprocal space here, we need to multiply
     #    back the `2Pi` factor, as can be found in the codes below.
     rec_latt = k_search.kpathFinder()["reciprocal_primitive_lattice"]
-    # k_trial = np.array([0., 0., 0.])
-    # k_trial = np.array([0.31819805153394654, -0.31819805153394654, 0.0])
-    # k_trial = np.array([0.79, 0.46, 0.25])
-    k_trial = np.array([0.49, 0.27, 0.26])
+    k_trial = np.array([0., 0., 0.])
     p_mat = k_search.transMatrix[brav_type]
 
     print_str = "{:>3s}{:>3s}{:>3s}"
@@ -413,63 +430,7 @@ if __name__ == "__main__":
             )
         )
 
-
-    def find_closest(num, num_list):
-        closest_num = min(num_list, key=lambda x: abs(x - num) / x)
-        distance = abs(num - closest_num) / closest_num
-        return closest_num, distance
-
-
-    satellite_peaks = list()
-    for hkl in hkl_refls:
-        hkl_tmp = np.array(hkl[:3])
-        hkl_tmp = np.matmul(
-            hkl_tmp,
-            p_mat
-        )
-
-        hkl_p_k = hkl_tmp + k_trial
-        k_cart = np.matmul(
-            hkl_p_k,
-            rec_latt
-        )
-        d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
-        satellite_peaks.append(d_hkl_p_k)
-
-        hkl_m_k = hkl_tmp - k_trial
-        k_cart = np.matmul(
-            hkl_m_k,
-            rec_latt
-        )
-        d_hkl_m_k = 2. * np.pi / np.linalg.norm(k_cart)
-        satellite_peaks.append(d_hkl_m_k)
-
-    closest_match = [
-        find_closest(sp, satellite_peaks) for sp in spos_gen
-    ]
-
-    print(closest_match)
-
-    # k_opt_list = list()
-    # k_opt_dist = list()
-
-    # k_trial = [0.29, 0.46, 0.25]
-    # # k_trial = [0.31819805153394654, -0.31819805153394654, 0.0]
-    # k_opt_out = k_search.updateCandidateList(
-    #     k_trial,
-    #     k_opt_list,
-    #     k_opt_dist,
-    #     True
-    # )
-
-    # (k_opt_list, k_opt_dist, found_opt) = k_opt_out
-    # print("\nOptimized k vector alternatives\n===")
-    # print(k_opt_list)
-    # print("Indicator distances of alternative k vectors\n===")
-    # print(k_opt_dist)
-
-
-    # k_opt = k_search.kOptFinder()
-    # k_opt_final = k_search.kVecPrimToConv(k_opt)
-    # print("\nOptimal candidate of k vector\n===")
-    # print(k_opt_final)
+    k_opt = k_search.kOptFinder()
+    k_opt_final = k_search.kVecPrimToConv(k_opt)
+    print("\nOptimal candidate of k vector\n===")
+    print(k_opt_final)
