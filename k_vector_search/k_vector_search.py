@@ -29,6 +29,7 @@
 #
 import seekpath
 import numpy as np
+import sys
 from scipy.optimize import linear_sum_assignment
 
 
@@ -122,9 +123,12 @@ class kVector:
                    Brillouin zone, `0` for high symmetry points only, `1` for
                    high symmetry and edges, `2` for the whole Brillouin zone.
                    Default: 0
-    :param kstep: (optional) step of k values for searching along the k path
-                  or across the whole 1st Brillouin zone.
-                  Default: 0.01
+    :param kstep: (optional) step of k values for searching over the k grid.
+                  Default: [.01, .01, .01]
+    :param kscope: (optional) scope of k to search over, in the conventional
+                   setting, specifying the range of searching along the x, y
+                   and z direction, respectively.
+                   Default: [0., 1.5, 0., 1.5, 0., 1.5]
     """
     transMatrix = {
         "P": np.array(
@@ -201,7 +205,9 @@ class kVector:
 
     def __init__(self, bravfSym: str, cell: list, positions: list,
                  numbers: list, nucPeaks: list, superPeaks: list,
-                 threshold: float, option: int = 0, kstep: float = 0.01):
+                 threshold: float, option: int = 0,
+                 kstep: list = [.01, .01, .01],
+                 kscope: list = [0., 1.5, 0., 1.5, 0., 1.5]):
         self.bravfSym = bravfSym
         self.cell = cell
         self.positions = positions
@@ -211,6 +217,13 @@ class kVector:
         self.threshold = threshold
         self.option = option
         self.kstep = kstep
+        self.kscope = kscope
+
+        rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
+        self.rep_conv_latt = np.matmul(
+            kVector.transMatrix[bravfSym],
+            rep_prim_latt
+        )
 
     def kpathFinder(self) -> dict:
         """Provided the structure inputs, the routine will be collecting the
@@ -340,15 +353,19 @@ class kVector:
             err_msg += "to the second list."
             raise ValueError(err_msg)
 
-        cost_matrix = np.array([[abs(i - j)**2 for i in list1] for j in list2])
+        cost_matrix = np.array(
+            [[((i - j) / j)**2. for i in list1] for j in list2]
+        )
         row_ind, col_ind = linear_sum_assignment(cost_matrix)
         mapping = {list2[i]: list1[j] for i, j in zip(row_ind, col_ind)}
 
-        sum_of_squares = cost_matrix[row_ind, col_ind].sum()
+        sum_of_squares = np.sqrt(
+            cost_matrix[row_ind, col_ind].sum() / float(len(list2))
+        )
 
         return (mapping, sum_of_squares)
 
-    def updateCandidateList(self, kpoint: list, k_opt_list: list,
+    def updateCandidateList(self, ktype: str, kpoint: list, k_opt_list: list,
                             k_opt_dist: list, try_neg: bool) -> tuple:
         """For a given k point, we want to first cycle through all the
         satellite peaks. For each satellite peak, we want to find out which
@@ -365,6 +382,8 @@ class kVector:
         determined by the instrument resolution), only the top candidate will
         be returned.
 
+        :param ktype: specify whether the k point is given in conventional
+                      ("C") or primitive ("P") setting
         :param kpoint: the trial k vector
         :param k_opt_list: list of top candidates of k vectors
         :param k_opt_dist: list of the `indicator distances` of those top
@@ -379,43 +398,93 @@ class kVector:
         :return: tuple of the updated list of top candidates of k vectors and
                  the updated list of the `indicator distances`
         """
-        rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
+        if ktype.upper() == "P":
+            rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
 
-        satellite_peaks = list()
-        for nucp in self.nucPeaks:
-            hkl_conv = nucp[:3]
-            hkl_prim = self.hklConvToPrim(hkl_conv)
-            hkl_p_k = hkl_prim + np.array(kpoint)
-            k_cart = np.matmul(
-                hkl_p_k,
-                rep_prim_latt
-            )
-            d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
-            satellite_peaks.append(d_hkl_p_k)
-
-            if try_neg:
-                hkl_m_k = hkl_prim - np.array(kpoint)
+            satellite_peaks = list()
+            for nucp in self.nucPeaks:
+                hkl_conv = nucp[:3]
+                hkl_prim = self.hklConvToPrim(hkl_conv)
+                hkl_p_k = hkl_prim + np.array(kpoint)
                 k_cart = np.matmul(
-                    hkl_m_k,
+                    hkl_p_k,
                     rep_prim_latt
                 )
-                d_hkl_m_k = 2. * np.pi / np.linalg.norm(k_cart)
-                satellite_peaks.append(d_hkl_m_k)
+                d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
+                satellite_peaks.append(d_hkl_p_k)
 
-        speaks_assigned, indicator_dist = self.unique_closest(
+                if try_neg:
+                    hkl_m_k = hkl_prim - np.array(kpoint)
+                    k_cart = np.matmul(
+                        hkl_m_k,
+                        rep_prim_latt
+                    )
+                    d_hkl_m_k = 2. * np.pi / np.linalg.norm(k_cart)
+                    satellite_peaks.append(d_hkl_m_k)
+        elif ktype.upper() == "C":
+            satellite_peaks = list()
+            for nucp in self.nucPeaks:
+                hkl_conv = np.array(nucp[:3])
+                hkl_p_k = hkl_conv + np.array(kpoint)
+                k_cart = np.matmul(
+                    hkl_p_k,
+                    self.rep_conv_latt
+                )
+                d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
+                satellite_peaks.append(d_hkl_p_k)
+
+                if try_neg:
+                    hkl_m_k = hkl_conv - np.array(kpoint)
+                    k_cart = np.matmul(
+                        hkl_m_k,
+                        self.rep_conv_latt
+                    )
+                    d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
+                    satellite_peaks.append(d_hkl_p_k)
+        else:
+            err_msg = "ktype should be either 'C' for conventional "
+            err_msg += "setting or 'P' for primitive setting."
+            raise ValueError(err_msg)
+
+        _, indicator_dist = self.unique_closest(
             satellite_peaks, self.superPeaks
         )
 
         if indicator_dist <= self.threshold:
+            if ktype == "C":
+                kpoint = np.matmul(
+                    kpoint,
+                    kVector.transMatrix[self.bravfSym]
+                )
             k_opt_list = [kpoint]
             k_opt_dist = [indicator_dist]
             return (k_opt_list, k_opt_dist)
         else:
-            k_opt_new = self.insIntoSortedList(
-                k_opt_dist,
-                indicator_dist
-            )
-            k_opt_list.insert(k_opt_new[1], kpoint)
+            if len(k_opt_list) < 10:
+                if ktype == "C":
+                    kpoint = np.matmul(
+                        kpoint,
+                        kVector.transMatrix[self.bravfSym]
+                    )
+                k_opt_new = self.insIntoSortedList(
+                    k_opt_dist,
+                    indicator_dist
+                )
+                k_opt_list.insert(k_opt_new[1], kpoint)
+            else:
+                if indicator_dist < k_opt_dist[9]:
+                    if ktype == "C":
+                        kpoint = np.matmul(
+                            kpoint,
+                            kVector.transMatrix[self.bravfSym]
+                        )
+                    k_opt_new = self.insIntoSortedList(
+                        k_opt_dist,
+                        indicator_dist
+                    )
+                    k_opt_list.insert(k_opt_new[1], kpoint)
+                else:
+                    return (k_opt_list, k_opt_dist)
 
             return (
                 k_opt_list[:10],
@@ -451,8 +520,9 @@ class kVector:
                 # path In this case, we don't need to consider their negatives
                 # as they are equivalent.
                 print("[Info] Searching over high symmetry points ...")
-                for _, kpoint in hs_points.items():
+                for name, kpoint in hs_points.items():
                     k_opt_tmp = self.updateCandidateList(
+                        "P",
                         kpoint,
                         k_opt_list,
                         k_opt_dist,
@@ -462,21 +532,25 @@ class kVector:
                     k_opt_dist = k_opt_tmp[1]
                     found_opt = k_opt_dist[0] <= self.threshold
 
-                    msg = f"[Info] k point (primitive setting): [{kpoint}]. "
-                    msg += f"Indicator value: {k_opt_dist[0]}, "
-                    msg += f"threshold: {self.threshold}"
+                    msg = "[Info] k point (primitive setting): "
+                    msg += "{:s} => [{:.5F}, {:.5F}, {:.5F}], ".format(
+                        name, kpoint[0], kpoint[1], kpoint[2]
+                    )
+                    msg += "Indicator distance: "
+                    msg += "{:.5F}, ".format(k_opt_dist[0])
+                    msg += f"Threshold: {self.threshold}"
                     print(msg)
 
                     if len(k_opt_list) == 1 and found_opt:
-                        return k_opt_list
+                        return (k_opt_list, k_opt_dist)
 
                 if self.option == 1 or self.option == 2:
                     # search along the k-path
                     print("[Info] Searching along the high symmetry path ...")
                     k_paths = self.kpathFinder()
                     for k_path in k_paths["path"]:
-                        print("[Info] k path (primitive setting): ", k_path)
-                        seg_len = self.kstep
+                        print("[Info] k path (primitive setting):", k_path)
+                        seg_len = self.kstep[0]
                         k_path_s = k_paths["point_coords"][k_path[0]]
                         k_path_e = k_paths["point_coords"][k_path[1]]
                         k_path_vec = np.array(
@@ -502,13 +576,20 @@ class kVector:
                                 np.array(kpoint),
                                 inv_trans_matrix
                             )
-                            condt1 = kpoint_c[0] < 0. or kpoint_c[0] > .5
-                            condt2 = kpoint_c[1] < 0. or kpoint_c[1] > 1.
-                            condt3 = kpoint_c[2] < 0. or kpoint_c[2] > 1.5
+                            kxl = self.kscope[0]
+                            kxu = self.kscope[1]
+                            kyl = self.kscope[2]
+                            kyu = self.kscope[3]
+                            kzl = self.kscope[4]
+                            kzu = self.kscope[5]
+                            condt1 = kpoint_c[0] < kxl or kpoint_c[0] > kxu
+                            condt2 = kpoint_c[1] < kyl or kpoint_c[1] > kyu
+                            condt3 = kpoint_c[2] < kzl or kpoint_c[2] > kzu
                             if condt1 or condt2 or condt3:
-                                seg_len += self.kstep
+                                seg_len += self.kstep[0]
                                 continue
                             k_opt_tmp = self.updateCandidateList(
+                                "P",
                                 kpoint,
                                 k_opt_list,
                                 k_opt_dist,
@@ -519,41 +600,34 @@ class kVector:
                             found_opt = k_opt_dist[0] <= self.threshold
 
                             if len(k_opt_list) == 1 and found_opt:
-                                return k_opt_list
+                                return (k_opt_list, k_opt_dist)
 
-                            seg_len += self.kstep
+                            seg_len += self.kstep[0]
 
                 if self.option == 2:
                     # search over the whole 1st Brillouin zone
                     print("[Info] Searching over general k points ...")
-                    grid_num = int(1. / self.kstep) - 1
-                    total_num = grid_num**3
+                    kxl = self.kscope[0]
+                    kxu = self.kscope[1]
+                    kyl = self.kscope[2]
+                    kyu = self.kscope[3]
+                    kzl = self.kscope[4]
+                    kzu = self.kscope[5]
+                    kx_grid_num = int((kxu - kxl) / self.kstep[0]) + 1
+                    ky_grid_num = int((kyu - kyl) / self.kstep[1]) + 1
+                    kz_grid_num = int((kzu - kzl) / self.kstep[2]) + 1
+                    total_num = kx_grid_num * ky_grid_num * kz_grid_num
                     milestone = int(total_num * 0.01)
                     searched = 0
-                    for i in range(grid_num):
-                        for j in range(grid_num):
-                            for m in range(grid_num):
-                                h_tmp = self.kstep * (i + 1)
-                                k_tmp = self.kstep * (j + 1)
-                                l_tmp = self.kstep * (m + 1)
+                    for i in range(kx_grid_num):
+                        for j in range(ky_grid_num):
+                            for m in range(kz_grid_num):
+                                h_tmp = kxl + self.kstep[0] * i
+                                k_tmp = kyl + self.kstep[1] * j
+                                l_tmp = kzl + self.kstep[2] * m
                                 kpoint = [h_tmp, k_tmp, l_tmp]
-                                inv_trans_matrix = np.linalg.inv(
-                                    kVector.transMatrix[self.bravfSym]
-                                )
-                                kpoint_c = np.matmul(
-                                    np.array(kpoint),
-                                    inv_trans_matrix
-                                )
-                                condt1 = kpoint_c[0] < 0. or kpoint_c[0] > .5
-                                condt2 = kpoint_c[1] < 0. or kpoint_c[1] > 1.
-                                condt3 = kpoint_c[2] < 0. or kpoint_c[2] > 1.5
-                                if condt1 or condt2 or condt3:
-                                    searched += 1
-                                    if searched % milestone == 0:
-                                        perct = (searched // milestone)
-                                        print(f"[Info] Progress: {perct}%")
-                                    continue
                                 k_opt_tmp = self.updateCandidateList(
+                                    "C",
                                     kpoint,
                                     k_opt_list,
                                     k_opt_dist,
@@ -565,13 +639,19 @@ class kVector:
 
                                 searched += 1
                                 if searched % milestone == 0:
-                                    perct = (searched // milestone)
-                                    print(f"[Info] Progress: {perct}%")
+                                    perct = searched // milestone
+                                    if perct == 1:
+                                        msg = f"[Info] Progress: .."
+                                        msg += f"{perct}%"
+                                    else:
+                                        msg = f"..{perct}%"
+                                    sys.stdout.write(msg)
+                                    sys.stdout.flush()
 
                                 if len(k_opt_list) == 1 and found_opt:
-                                    return k_opt_list
+                                    return (k_opt_list, k_opt_dist)
 
-                return k_opt_list
+                return (k_opt_list, k_opt_dist)
             else:
                 if self.option == 0:
                     err_msg = "The number of nucleus peaks is less than that "

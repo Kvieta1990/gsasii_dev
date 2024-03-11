@@ -229,6 +229,7 @@ if __name__ == "__main__":
     k_opt_list = list()
     k_opt_dist = list()
     k_opt_out = k_search.updateCandidateList(
+        "P",
         k_trial,
         k_opt_list,
         k_opt_dist,
@@ -244,6 +245,7 @@ if __name__ == "__main__":
     # given a trial k vector of (.5, 0, .5)
     k_trial = [.5, 0, .5]  # F point
     k_opt_out = k_search.updateCandidateList(
+        "P",
         k_trial,
         k_opt_list,
         k_opt_dist,
@@ -259,6 +261,7 @@ if __name__ == "__main__":
     # given the trial k vector of (0, 0, 0)
     k_trial = [0, 0, 0]  # Gamma point
     k_opt_out = k_search.updateCandidateList(
+        "P",
         k_trial,
         k_opt_list,
         k_opt_dist,
@@ -364,7 +367,8 @@ if __name__ == "__main__":
         hkl_refls,
         spos_gen,
         threshold,
-        option=2
+        option=2,
+        kscope=[0., 0.5, 0., 1., 0., 1.5]
     )
 
     # here, we are doing some self-checking. We have the provided hkl list and
@@ -431,6 +435,13 @@ if __name__ == "__main__":
         )
 
     k_opt = k_search.kOptFinder()
-    k_opt_final = k_search.kVecPrimToConv(k_opt)
-    print("\nOptimal candidate of k vector\n===")
-    print(k_opt_final)
+    k_opt_final = k_search.kVecPrimToConv(k_opt[0])
+    print("\n\nOptimal candidate of k vector\n===")
+    for i, k_vec in enumerate(k_opt_final):
+        msg = "k vector: [{:.5F}, {:.5F}, {:5F}]".format(
+            k_vec[0], k_vec[1], k_vec[2]
+        )
+        msg += ", Indicator distance: {:.5E}".format(
+            k_opt[1][i]
+        )
+        print(msg)
