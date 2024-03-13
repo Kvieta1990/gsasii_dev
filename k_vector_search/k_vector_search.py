@@ -225,8 +225,12 @@ class kVector:
             self.kscope = [0., 1.5, 0., 1.5, 0., 1.5]
 
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
+        if "P" in bravfSym:
+            self.bs_tmp = "P"
+        else:
+            self.bs_tmp = bravfSym
         self.rep_conv_latt = np.matmul(
-            kVector.transMatrix[bravfSym],
+            kVector.transMatrix[self.bs_tmp],
             rep_prim_latt
         )
 
@@ -277,7 +281,7 @@ class kVector:
         """
         prim_hkl = np.matmul(
             np.array(hkl),
-            kVector.transMatrix[self.bravfSym]
+            kVector.transMatrix[self.bs_tmp]
         )
 
         return prim_hkl
@@ -290,7 +294,7 @@ class kVector:
         :return: the k vector in the conventional cell setting
         """
         inv_trans_matrix = np.linalg.inv(
-            kVector.transMatrix[self.bravfSym]
+            kVector.transMatrix[self.bs_tmp]
         )
 
         k_vec_conv = np.matmul(
@@ -460,7 +464,7 @@ class kVector:
             if ktype == "C":
                 kpoint = np.matmul(
                     kpoint,
-                    kVector.transMatrix[self.bravfSym]
+                    kVector.transMatrix[self.bs_tmp]
                 )
             k_opt_list = [kpoint]
             k_opt_dist = [indicator_dist]
@@ -470,7 +474,7 @@ class kVector:
                 if ktype == "C":
                     kpoint = np.matmul(
                         kpoint,
-                        kVector.transMatrix[self.bravfSym]
+                        kVector.transMatrix[self.bs_tmp]
                     )
                 k_opt_new = self.insIntoSortedList(
                     k_opt_dist,
@@ -482,7 +486,7 @@ class kVector:
                     if ktype == "C":
                         kpoint = np.matmul(
                             kpoint,
-                            kVector.transMatrix[self.bravfSym]
+                            kVector.transMatrix[self.bs_tmp]
                         )
                     k_opt_new = self.insIntoSortedList(
                         k_opt_dist,
@@ -576,7 +580,7 @@ class kVector:
                                 seg_len
                             )
                             inv_trans_matrix = np.linalg.inv(
-                                kVector.transMatrix[self.bravfSym]
+                                kVector.transMatrix[self.bs_tmp]
                             )
                             kpoint_c = np.matmul(
                                 np.array(kpoint),
