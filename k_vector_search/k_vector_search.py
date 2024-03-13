@@ -206,8 +206,8 @@ class kVector:
     def __init__(self, bravfSym: str, cell: list, positions: list,
                  numbers: list, nucPeaks: list, superPeaks: list,
                  threshold: float, option: int = 0,
-                 kstep: list = [.01, .01, .01],
-                 kscope: list = [0., 1.5, 0., 1.5, 0., 1.5]):
+                 kstep: list = None,
+                 kscope: list = None):
         self.bravfSym = bravfSym
         self.cell = cell
         self.positions = positions
@@ -218,6 +218,11 @@ class kVector:
         self.option = option
         self.kstep = kstep
         self.kscope = kscope
+
+        if kstep is None:
+            self.kstep = [.01, .01, .01]
+        if kscope is None:
+            self.kscope = [0., 1.5, 0., 1.5, 0., 1.5]
 
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
         self.rep_conv_latt = np.matmul(
@@ -287,6 +292,7 @@ class kVector:
         inv_trans_matrix = np.linalg.inv(
             kVector.transMatrix[self.bravfSym]
         )
+
         k_vec_conv = np.matmul(
             np.array(k_vec),
             inv_trans_matrix
