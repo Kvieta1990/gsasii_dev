@@ -31,6 +31,7 @@ import seekpath
 import numpy as np
 import sys
 from scipy.optimize import linear_sum_assignment
+import math
 
 
 def unique_id_gen(string_list: list) -> list:
@@ -423,14 +424,9 @@ class kVector:
 
         satellite_peaks = list(set(satellite_peaks))
 
-        print("Debugging -> satellite_peaks: ", sorted(satellite_peaks, reverse=True))
-        print("Debugging -> superpeaks: ", self.superPeaks)
-
-        mmm, indicator_dist = self.unique_closest(
+        _, indicator_dist = self.unique_closest(
             satellite_peaks, self.superPeaks
         )
-
-        print("MappingL ", mmm)
 
         if indicator_dist <= self.threshold:
             k_opt_list = [kpoint]
@@ -554,48 +550,27 @@ class kVector:
                     # search over the whole 1st Brillouin zone
                     print("[Info] Searching over general k points ...")
 
-                    rep_prim_latt_inv = np.linalg.inv(rep_prim_latt)
+                    ka_step = self.kstep[0]
+                    kb_step = self.kstep[1]
+                    kc_step = self.kstep[2]
 
-                    kx_extremes = list()
-                    ky_extremes = list()
-                    kz_extremes = list()
-                    all_sign = [-1., 1.]
-                    for sign_ka in all_sign:
-                        for sign_kb in all_sign:
-                            for sign_kc in all_sign:
-                                kx_tmp = sign_ka * .5 * rep_prim_latt[0][0]
-                                kx_tmp += sign_kb * .5 * rep_prim_latt[1][0]
-                                kx_tmp += sign_kc * .5 * rep_prim_latt[2][0]
+                    kpa_len = np.linalg.norm(rep_prim_latt[0])
+                    kpb_len = np.linalg.norm(rep_prim_latt[1])
+                    kpc_len = .5 * np.linalg.norm(rep_prim_latt[2])
 
-                                ky_tmp = sign_ka * .5 * rep_prim_latt[0][1]
-                                ky_tmp += sign_kb * .5 * rep_prim_latt[1][1]
-                                ky_tmp += sign_kc * .5 * rep_prim_latt[2][1]
-
-                                kz_tmp = sign_ka * .5 * rep_prim_latt[0][2]
-                                kz_tmp += sign_kb * .5 * rep_prim_latt[1][2]
-                                kz_tmp += sign_kc * .5 * rep_prim_latt[2][2]
-
-                                kx_extremes.append(kx_tmp)
-                                ky_extremes.append(ky_tmp)
-                                kz_extremes.append(kz_tmp)
-
-                    kx_min = min(kx_extremes)
-                    ky_min = min(ky_extremes)
-                    kz_min = min(kz_extremes)
-                    kx_max = max(kx_extremes)
-                    ky_max = max(ky_extremes)
-                    kz_max = max(kz_extremes)
-
-                    kx_grid_num = int((kx_max - kx_min) / self.kstep[0]) + 1
-                    ky_grid_num = int((ky_max - ky_min) / self.kstep[1]) + 1
-                    kz_grid_num = int((kz_max - kz_min) / self.kstep[2]) + 1
+                    kx_grid_num = math.floor(kpa_len / ka_step) + 1
+                    ky_grid_num = math.floor(kpb_len / kb_step) + 1
+                    kz_grid_num = math.floor(kpc_len / kc_step) + 1
 
                     total_num = kx_grid_num * ky_grid_num * kz_grid_num
                     milestone = int(total_num * 0.01)
                     searched = 0
-                    for i in range(kx_grid_num):
-                        for j in range(ky_grid_num):
-                            for m in range(kz_grid_num):
+                    seg_a_len = 0.
+                    while seg_a_len < kpa_len:
+                        seg_b_len = 0.
+                        while seg_b_len < kpb_len:
+                            seg_c_len = 0.
+                            while seg_c_len < kpc_len:
                                 searched += 1
                                 if searched % milestone == 0:
                                     perct = searched // milestone
@@ -607,37 +582,28 @@ class kVector:
                                     sys.stdout.write(msg)
                                     sys.stdout.flush()
 
+                                kpoint = [
+                                    -.5 + seg_a_len / kpa_len,
+                                    -.5 + seg_b_len / kpb_len,
+                                    seg_c_len / kpc_len,
+                                ]
+
+                                k_opt_tmp = self.updateCandidateList(
+                                    kpoint,
+                                    k_opt_list,
+                                    k_opt_dist,
+                                    True
+                                )
+                                k_opt_list = k_opt_tmp[0]
+                                k_opt_dist = k_opt_tmp[1]
+                                found_opt = k_opt_dist[0] <= self.threshold
+
                                 if len(k_opt_list) == 1 and found_opt:
                                     return (k_opt_list, k_opt_dist)
 
-                                h_tmp = kx_min + self.kstep[0] * i
-                                k_tmp = ky_min + self.kstep[1] * j
-                                l_tmp = kz_min + self.kstep[2] * m
-
-                                kpoint_cart = np.array([h_tmp, k_tmp, l_tmp])
-                                kpoint = np.matmul(
-                                    kpoint_cart,
-                                    rep_prim_latt_inv
-                                )
-                                condt1 = -.5 <= kpoint[0] < .5
-                                condt2 = -.5 <= kpoint[1] < .5
-                                condt3 = 0. <= kpoint[2] <= .5
-                                condt1 = abs(kpoint[0] + 0.21) < 0.01
-                                condt2 = abs(kpoint[1] - .46) < 0.01
-                                condt3 = abs(kpoint[2] - .25) < 0.01
-                                if condt1 and condt2 and condt3:
-                                    kpoint = kpoint.tolist()
-                                    k_opt_tmp = self.updateCandidateList(
-                                        kpoint,
-                                        k_opt_list,
-                                        k_opt_dist,
-                                        True
-                                    )
-                                    k_opt_list = k_opt_tmp[0]
-                                    k_opt_dist = k_opt_tmp[1]
-                                    found_opt = k_opt_dist[0] <= self.threshold
-                                else:
-                                    continue
+                                seg_c_len += kc_step
+                            seg_b_len += kb_step
+                        seg_a_len += ka_step
 
                 return (k_opt_list, k_opt_dist)
             else:
