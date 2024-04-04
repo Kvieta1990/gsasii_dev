@@ -352,12 +352,13 @@ if __name__ == "__main__":
         spos_gen,
         threshold,
         option=2,
+        kstep=[0.002, 0.002, 0.002],
         kscope=[0., 0.5, 0., 1., 0., 1.5]
     )
 
     k_opt = k_search.kOptFinder()
     k_opt_final = k_search.kVecPrimToConv(k_opt[0])
-    print("\n\nOptimal candidate of k vector\n===")
+    print("\nOptimal candidate of k vector\n===")
     for i, k_vec in enumerate(k_opt_final):
         msg = "k vector: [{:.5F}, {:.5F}, {:5F}]".format(
             k_vec[0], k_vec[1], k_vec[2]

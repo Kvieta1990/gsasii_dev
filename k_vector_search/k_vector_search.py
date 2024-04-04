@@ -546,6 +546,28 @@ class kVector:
 
                             seg_len += self.kstep[0]
 
+                # import numpy as np
+
+                # # Define the basis vectors
+                # basis_vectors = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+
+                # # Define the ranges for each basis vector
+                # ranges = [(0, 5), (-2, 3), (1, 7)]  # Example ranges, you can define your own
+
+                # # Generate a grid for the 3D space
+                # x = np.linspace(ranges[0][0], ranges[0][1], 100)
+                # y = np.linspace(ranges[1][0], ranges[1][1], 100)
+                # z = np.linspace(ranges[2][0], ranges[2][1], 100)
+                # points = np.array(np.meshgrid(x, y, z)).T.reshape(-1, 3)
+
+                # # Calculate the values associated with each point
+                # values = np.sum(points * basis_vectors, axis=1)  # Example calculation, you can define your own function
+
+                # # Find the minimum value
+                # min_value = np.min(values)
+
+                # print("Minimum value in the 3D space:", min_value)
+
                 if self.option == 2:
                     # search over the whole 1st Brillouin zone
                     print("[Info] Searching over general k points ...")
@@ -563,6 +585,7 @@ class kVector:
                     kz_grid_num = math.floor(kpc_len / kc_step) + 1
 
                     total_num = kx_grid_num * ky_grid_num * kz_grid_num
+                    print("Debugging -> ", total_num)
                     milestone = int(total_num * 0.01)
                     searched = 0
                     seg_a_len = 0.
