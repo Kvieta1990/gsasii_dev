@@ -32,6 +32,7 @@ import numpy as np
 import sys
 from scipy.optimize import linear_sum_assignment
 import math
+from cython.kvec_general import parallel_proc
 
 
 def unique_id_gen(string_list: list) -> list:
@@ -208,7 +209,8 @@ class kVector:
                  numbers: list, nucPeaks: list, superPeaks: list,
                  threshold: float, option: int = 0,
                  kstep: list = None,
-                 kscope: list = None):
+                 kscope: list = None,
+                 processes: int = 1):
         self.bravfSym = bravfSym
         self.cell = cell
         self.positions = positions
@@ -219,6 +221,7 @@ class kVector:
         self.option = option
         self.kstep = kstep
         self.kscope = kscope
+        self.processes = processes
 
         if kstep is None:
             self.kstep = [.01, .01, .01]
@@ -546,28 +549,6 @@ class kVector:
 
                             seg_len += self.kstep[0]
 
-                # import numpy as np
-
-                # # Define the basis vectors
-                # basis_vectors = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
-
-                # # Define the ranges for each basis vector
-                # ranges = [(0, 5), (-2, 3), (1, 7)]  # Example ranges, you can define your own
-
-                # # Generate a grid for the 3D space
-                # x = np.linspace(ranges[0][0], ranges[0][1], 100)
-                # y = np.linspace(ranges[1][0], ranges[1][1], 100)
-                # z = np.linspace(ranges[2][0], ranges[2][1], 100)
-                # points = np.array(np.meshgrid(x, y, z)).T.reshape(-1, 3)
-
-                # # Calculate the values associated with each point
-                # values = np.sum(points * basis_vectors, axis=1)  # Example calculation, you can define your own function
-
-                # # Find the minimum value
-                # min_value = np.min(values)
-
-                # print("Minimum value in the 3D space:", min_value)
-
                 if self.option == 2:
                     # search over the whole 1st Brillouin zone
                     print("[Info] Searching over general k points ...")
@@ -580,53 +561,27 @@ class kVector:
                     kpb_len = np.linalg.norm(rep_prim_latt[1])
                     kpc_len = .5 * np.linalg.norm(rep_prim_latt[2])
 
-                    kx_grid_num = math.floor(kpa_len / ka_step) + 1
-                    ky_grid_num = math.floor(kpb_len / kb_step) + 1
-                    kz_grid_num = math.floor(kpc_len / kc_step) + 1
+                    a_array = -0.5 + np.arange(0, kpa_len, ka_step) / kpa_len
+                    b_array = -0.5 + np.arange(0, kpb_len, kb_step) / kpb_len
+                    c_array = np.arange(0, kpc_len / 2., kc_step) / kpc_len
 
-                    total_num = kx_grid_num * ky_grid_num * kz_grid_num
-                    print("Debugging -> ", total_num)
-                    milestone = int(total_num * 0.01)
-                    searched = 0
-                    seg_a_len = 0.
-                    while seg_a_len < kpa_len:
-                        seg_b_len = 0.
-                        while seg_b_len < kpb_len:
-                            seg_c_len = 0.
-                            while seg_c_len < kpc_len:
-                                searched += 1
-                                if searched % milestone == 0:
-                                    perct = searched // milestone
-                                    if perct == 1:
-                                        msg = f"[Info] Progress: .."
-                                        msg += f"{perct}%"
-                                    else:
-                                        msg = f"..{perct}%"
-                                    sys.stdout.write(msg)
-                                    sys.stdout.flush()
+                    points = np.array(np.meshgrid(a_array, b_array, c_array))
+                    points = points.T.reshape(-1, 3)
 
-                                kpoint = [
-                                    -.5 + seg_a_len / kpa_len,
-                                    -.5 + seg_b_len / kpb_len,
-                                    seg_c_len / kpc_len,
-                                ]
+                    results = parallel_proc(
+                        points,
+                        self.nucPeaks,
+                        self.superPeaks,
+                        rep_prim_latt,
+                        processes=self.processes
+                    )
 
-                                k_opt_tmp = self.updateCandidateList(
-                                    kpoint,
-                                    k_opt_list,
-                                    k_opt_dist,
-                                    True
-                                )
-                                k_opt_list = k_opt_tmp[0]
-                                k_opt_dist = k_opt_tmp[1]
-                                found_opt = k_opt_dist[0] <= self.threshold
-
-                                if len(k_opt_list) == 1 and found_opt:
-                                    return (k_opt_list, k_opt_dist)
-
-                                seg_c_len += kc_step
-                            seg_b_len += kb_step
-                        seg_a_len += ka_step
+                    k_opt_list = [
+                        item[0] for item in results
+                    ]
+                    k_opt_dist = [
+                        item[1] for item in results
+                    ]
 
                 return (k_opt_list, k_opt_dist)
             else:
