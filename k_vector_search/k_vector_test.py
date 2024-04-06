@@ -353,7 +353,8 @@ if __name__ == "__main__":
         threshold,
         option=2,
         kstep=[0.002, 0.002, 0.002],
-        kscope=[0., 0.5, 0., 1., 0., 1.5]
+        kscope=[0., 0.5, 0., 1., 0., 1.5],
+        processes=16
     )
 
     k_opt = k_search.kOptFinder()

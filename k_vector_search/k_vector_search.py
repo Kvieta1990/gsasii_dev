@@ -33,6 +33,7 @@ import sys
 from scipy.optimize import linear_sum_assignment
 import math
 from cython.kvec_general import parallel_proc
+import time
 
 
 def unique_id_gen(string_list: list) -> list:
@@ -131,6 +132,9 @@ class kVector:
                    setting, specifying the range of searching along the x, y
                    and z direction, respectively.
                    Default: [0., 1.5, 0., 1.5, 0., 1.5]
+    :param processes: (optional) the number of processes for parallel
+                      processing.
+                      Default: 1
     """
     transMatrix = {
         "P": np.array(
@@ -470,6 +474,7 @@ class kVector:
                  instrument resolution), only one candidate will be returned.
                  Otherwise, top 10 candidates will be returned.
         """
+        start_search = time.time()
         hs_points = self.kpathFinder()["point_coords"]
         rep_prim_latt = self.kpathFinder()["reciprocal_primitive_lattice"]
 
@@ -507,6 +512,10 @@ class kVector:
                     print(msg)
 
                     if len(k_opt_list) == 1 and found_opt:
+                        stop_search = time.time()
+                        te = stop_search - start_search
+                        print(f"[Info] Time elapsed: {te} s")
+
                         return (k_opt_list, k_opt_dist)
 
                 if self.option == 1 or self.option == 2:
@@ -545,6 +554,10 @@ class kVector:
                             found_opt = k_opt_dist[0] <= self.threshold
 
                             if len(k_opt_list) == 1 and found_opt:
+                                stop_search = time.time()
+                                te = stop_search - start_search
+                                print(f"[Info] Time elapsed: {te} s")
+
                                 return (k_opt_list, k_opt_dist)
 
                             seg_len += self.kstep[0]
@@ -582,6 +595,10 @@ class kVector:
                     k_opt_dist = [
                         item[1] for item in results
                     ]
+
+                stop_search = time.time()
+                te = stop_search - start_search
+                print(f"[Info] Time elapsed: {te} s")
 
                 return (k_opt_list, k_opt_dist)
             else:
