@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "kvec_general",
+        "name": "k_vector_search.cython.kvec_general",
         "sources": [
             "kvec_general.pyx"
         ]
     },
-    "module_name": "kvec_general"
+    "module_name": "k_vector_search.cython.kvec_general"
 }
 END: Cython Metadata */
 
@@ -1086,8 +1086,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__kvec_general
-#define __PYX_HAVE_API__kvec_general
+#define __PYX_HAVE__k_vector_search__cython__kvec_general
+#define __PYX_HAVE_API__k_vector_search__cython__kvec_general
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -1426,7 +1426,7 @@ typedef struct {
 
 /* #### Code section: numeric_typedefs ### */
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":730
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":730
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -1435,7 +1435,7 @@ typedef struct {
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":731
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":731
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -1444,7 +1444,7 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":732
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":732
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -1453,7 +1453,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":733
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":733
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -1462,7 +1462,7 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":737
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":737
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -1471,7 +1471,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":738
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":738
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -1480,7 +1480,7 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":739
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":739
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -1489,7 +1489,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":740
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":740
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -1498,7 +1498,7 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":744
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":744
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -1507,7 +1507,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":745
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":745
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -1516,7 +1516,7 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":754
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":754
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -1525,7 +1525,7 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":755
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":755
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -1534,7 +1534,7 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":757
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":757
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -1543,7 +1543,7 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":758
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":758
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -1552,7 +1552,7 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":760
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":760
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -1561,7 +1561,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":761
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":761
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -1570,7 +1570,7 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":763
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":763
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -1579,7 +1579,7 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":764
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":764
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -1588,7 +1588,7 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":765
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":765
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -1624,9 +1624,9 @@ static CYTHON_INLINE __pyx_t_double_complex __pyx_t_double_complex_from_parts(do
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc;
+struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":767
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":767
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -1635,7 +1635,7 @@ struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc;
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":768
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":768
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -1644,7 +1644,7 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":769
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":769
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -1653,7 +1653,7 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":771
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":771
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -1662,14 +1662,14 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "kvec_general.pyx":28
+/* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
  *         list point,
  *         list hkl_refls,
  */
-struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc {
+struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc {
   PyObject_HEAD
   PyObject *__pyx_v_point;
   PyObject *__pyx_v_rep_prim_latt;
@@ -2678,16 +2678,16 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
 
 /* Module declarations from "libc.math" */
 
-/* Module declarations from "kvec_general" */
+/* Module declarations from "k_vector_search.cython.kvec_general" */
 /* #### Code section: typeinfo ### */
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_intp_t = { "intp_t", NULL, sizeof(__pyx_t_5numpy_intp_t), { 0 }, 0, __PYX_IS_UNSIGNED(__pyx_t_5numpy_intp_t) ? 'U' : 'I', __PYX_IS_UNSIGNED(__pyx_t_5numpy_intp_t), 0 };
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "kvec_general"
-extern int __pyx_module_is_main_kvec_general;
-int __pyx_module_is_main_kvec_general = 0;
+#define __Pyx_MODULE_NAME "k_vector_search.cython.kvec_general"
+extern int __pyx_module_is_main_k_vector_search__cython__kvec_general;
+int __pyx_module_is_main_k_vector_search__cython__kvec_general = 0;
 
-/* Implementation of "kvec_general" */
+/* Implementation of "k_vector_search.cython.kvec_general" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_zip;
@@ -2755,7 +2755,6 @@ static const char __pyx_k_cost_matrix[] = "cost_matrix";
 static const char __pyx_k_indDistCalc[] = "indDistCalc";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_kvec_general[] = "kvec_general";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_parallel_proc[] = "parallel_proc";
 static const char __pyx_k_rep_prim_latt[] = "rep_prim_latt";
@@ -2776,16 +2775,17 @@ static const char __pyx_k_linear_sum_assignment[] = "linear_sum_assignment";
 static const char __pyx_k_parallel_proc_locals_lambda[] = "parallel_proc.<locals>.<lambda>";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_indDistCalc_locals_calcSatellite[] = "indDistCalc.<locals>.calcSatelliteP";
+static const char __pyx_k_k_vector_search_cython_kvec_gene[] = "k_vector_search.cython.kvec_general";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
 static const char __pyx_k_indDistCalc_locals_calcSatellite_2[] = "indDistCalc.<locals>.calcSatelliteM";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_list1, PyArrayObject *__pyx_v_list2); /* proto */
-static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *__pyx_self, PyObject *__pyx_v_hkl); /* proto */
-static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject *__pyx_self, PyObject *__pyx_v_hkl); /* proto */
-static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_point, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt); /* proto */
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_list1, PyArrayObject *__pyx_v_list2); /* proto */
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *__pyx_self, PyObject *__pyx_v_hkl); /* proto */
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject *__pyx_self, PyObject *__pyx_v_hkl); /* proto */
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_point, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_points, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt, int __pyx_v_processes); /* proto */
-static PyObject *__pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_points, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt, int __pyx_v_processes); /* proto */
+static PyObject *__pyx_tp_new_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2850,9 +2850,9 @@ typedef struct {
   #if CYTHON_USE_MODULE_STATE
   #endif
   #if CYTHON_USE_MODULE_STATE
-  PyObject *__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc;
+  PyObject *__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc;
   #endif
-  PyTypeObject *__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc;
+  PyTypeObject *__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc;
   PyObject *__pyx_n_s_ImportError;
   PyObject *__pyx_n_s_Pool;
   PyObject *__pyx_kp_u__10;
@@ -2893,8 +2893,8 @@ typedef struct {
   PyObject *__pyx_kp_u_isenabled;
   PyObject *__pyx_n_s_j;
   PyObject *__pyx_n_s_k_cart;
+  PyObject *__pyx_n_s_k_vector_search_cython_kvec_gene;
   PyObject *__pyx_n_s_key;
-  PyObject *__pyx_n_s_kvec_general;
   PyObject *__pyx_kp_s_kvec_general_pyx;
   PyObject *__pyx_n_s_linalg;
   PyObject *__pyx_n_s_linear_sum_assignment;
@@ -3011,8 +3011,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_flexible);
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_character);
   Py_CLEAR(clear_module_state->__pyx_ptype_5numpy_ufunc);
-  Py_CLEAR(clear_module_state->__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc);
-  Py_CLEAR(clear_module_state->__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc);
+  Py_CLEAR(clear_module_state->__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc);
+  Py_CLEAR(clear_module_state->__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc);
   Py_CLEAR(clear_module_state->__pyx_n_s_ImportError);
   Py_CLEAR(clear_module_state->__pyx_n_s_Pool);
   Py_CLEAR(clear_module_state->__pyx_kp_u__10);
@@ -3053,8 +3053,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
   Py_CLEAR(clear_module_state->__pyx_n_s_j);
   Py_CLEAR(clear_module_state->__pyx_n_s_k_cart);
+  Py_CLEAR(clear_module_state->__pyx_n_s_k_vector_search_cython_kvec_gene);
   Py_CLEAR(clear_module_state->__pyx_n_s_key);
-  Py_CLEAR(clear_module_state->__pyx_n_s_kvec_general);
   Py_CLEAR(clear_module_state->__pyx_kp_s_kvec_general_pyx);
   Py_CLEAR(clear_module_state->__pyx_n_s_linalg);
   Py_CLEAR(clear_module_state->__pyx_n_s_linear_sum_assignment);
@@ -3149,8 +3149,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_flexible);
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_character);
   Py_VISIT(traverse_module_state->__pyx_ptype_5numpy_ufunc);
-  Py_VISIT(traverse_module_state->__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc);
-  Py_VISIT(traverse_module_state->__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc);
+  Py_VISIT(traverse_module_state->__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc);
+  Py_VISIT(traverse_module_state->__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc);
   Py_VISIT(traverse_module_state->__pyx_n_s_ImportError);
   Py_VISIT(traverse_module_state->__pyx_n_s_Pool);
   Py_VISIT(traverse_module_state->__pyx_kp_u__10);
@@ -3191,8 +3191,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
   Py_VISIT(traverse_module_state->__pyx_n_s_j);
   Py_VISIT(traverse_module_state->__pyx_n_s_k_cart);
+  Py_VISIT(traverse_module_state->__pyx_n_s_k_vector_search_cython_kvec_gene);
   Py_VISIT(traverse_module_state->__pyx_n_s_key);
-  Py_VISIT(traverse_module_state->__pyx_n_s_kvec_general);
   Py_VISIT(traverse_module_state->__pyx_kp_s_kvec_general_pyx);
   Py_VISIT(traverse_module_state->__pyx_n_s_linalg);
   Py_VISIT(traverse_module_state->__pyx_n_s_linear_sum_assignment);
@@ -3316,9 +3316,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #if CYTHON_USE_MODULE_STATE
 #endif
 #if CYTHON_USE_MODULE_STATE
-#define __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc __pyx_mstate_global->__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc
+#define __pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc __pyx_mstate_global->__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc
 #endif
-#define __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc __pyx_mstate_global->__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc
+#define __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc __pyx_mstate_global->__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc
 #define __pyx_n_s_ImportError __pyx_mstate_global->__pyx_n_s_ImportError
 #define __pyx_n_s_Pool __pyx_mstate_global->__pyx_n_s_Pool
 #define __pyx_kp_u__10 __pyx_mstate_global->__pyx_kp_u__10
@@ -3359,8 +3359,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
 #define __pyx_n_s_j __pyx_mstate_global->__pyx_n_s_j
 #define __pyx_n_s_k_cart __pyx_mstate_global->__pyx_n_s_k_cart
+#define __pyx_n_s_k_vector_search_cython_kvec_gene __pyx_mstate_global->__pyx_n_s_k_vector_search_cython_kvec_gene
 #define __pyx_n_s_key __pyx_mstate_global->__pyx_n_s_key
-#define __pyx_n_s_kvec_general __pyx_mstate_global->__pyx_n_s_kvec_general
 #define __pyx_kp_s_kvec_general_pyx __pyx_mstate_global->__pyx_kp_s_kvec_general_pyx
 #define __pyx_n_s_linalg __pyx_mstate_global->__pyx_n_s_linalg
 #define __pyx_n_s_linear_sum_assignment __pyx_mstate_global->__pyx_n_s_linear_sum_assignment
@@ -3421,7 +3421,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
 /* #### Code section: module_code ### */
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":245
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":245
  * 
  *         @property
  *         cdef inline PyObject* base(self) nogil:             # <<<<<<<<<<<<<<
@@ -3432,7 +3432,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject *__pyx_v_self) {
   PyObject *__pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":248
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":248
  *             """Returns a borrowed reference to the object owning the data/memory.
  *             """
  *             return PyArray_BASE(self)             # <<<<<<<<<<<<<<
@@ -3442,7 +3442,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject 
   __pyx_r = PyArray_BASE(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":245
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":245
  * 
  *         @property
  *         cdef inline PyObject* base(self) nogil:             # <<<<<<<<<<<<<<
@@ -3455,7 +3455,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base_base(PyArrayObject 
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":251
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":251
  * 
  *         @property
  *         cdef inline dtype descr(self):             # <<<<<<<<<<<<<<
@@ -3469,7 +3469,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   PyArray_Descr *__pyx_t_1;
   __Pyx_RefNannySetupContext("descr", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":254
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":254
  *             """Returns an owned reference to the dtype of the array.
  *             """
  *             return <dtype>PyArray_DESCR(self)             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   __pyx_r = ((PyArray_Descr *)__pyx_t_1);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":251
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":251
  * 
  *         @property
  *         cdef inline dtype descr(self):             # <<<<<<<<<<<<<<
@@ -3497,7 +3497,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":257
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":257
  * 
  *         @property
  *         cdef inline int ndim(self) nogil:             # <<<<<<<<<<<<<<
@@ -3508,7 +3508,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr_descr(PyArray
 static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":260
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":260
  *             """Returns the number of dimensions in the array.
  *             """
  *             return PyArray_NDIM(self)             # <<<<<<<<<<<<<<
@@ -3518,7 +3518,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
   __pyx_r = PyArray_NDIM(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":257
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":257
  * 
  *         @property
  *         cdef inline int ndim(self) nogil:             # <<<<<<<<<<<<<<
@@ -3531,7 +3531,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":263
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":263
  * 
  *         @property
  *         cdef inline npy_intp *shape(self) nogil:             # <<<<<<<<<<<<<<
@@ -3542,7 +3542,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim_ndim(PyArrayObject *__pyx
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":268
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":268
  *             Can return NULL for 0-dimensional arrays.
  *             """
  *             return PyArray_DIMS(self)             # <<<<<<<<<<<<<<
@@ -3552,7 +3552,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
   __pyx_r = PyArray_DIMS(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":263
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":263
  * 
  *         @property
  *         cdef inline npy_intp *shape(self) nogil:             # <<<<<<<<<<<<<<
@@ -3565,7 +3565,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":271
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":271
  * 
  *         @property
  *         cdef inline npy_intp *strides(self) nogil:             # <<<<<<<<<<<<<<
@@ -3576,7 +3576,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape_shape(PyArrayObjec
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":275
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":275
  *             The number of elements matches the number of dimensions of the array (ndim).
  *             """
  *             return PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
@@ -3586,7 +3586,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
   __pyx_r = PyArray_STRIDES(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":271
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":271
  * 
  *         @property
  *         cdef inline npy_intp *strides(self) nogil:             # <<<<<<<<<<<<<<
@@ -3599,7 +3599,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":278
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":278
  * 
  *         @property
  *         cdef inline npy_intp size(self) nogil:             # <<<<<<<<<<<<<<
@@ -3610,7 +3610,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides_strides(PyArrayO
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":281
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":281
  *             """Returns the total size (in number of elements) of the array.
  *             """
  *             return PyArray_SIZE(self)             # <<<<<<<<<<<<<<
@@ -3620,7 +3620,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
   __pyx_r = PyArray_SIZE(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":278
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":278
  * 
  *         @property
  *         cdef inline npy_intp size(self) nogil:             # <<<<<<<<<<<<<<
@@ -3633,7 +3633,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":284
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":284
  * 
  *         @property
  *         cdef inline char* data(self) nogil:             # <<<<<<<<<<<<<<
@@ -3644,7 +3644,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size_size(PyArrayObject *
 static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__pyx_v_self) {
   char *__pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":290
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":290
  *             of `PyArray_DATA()` instead, which returns a 'void*'.
  *             """
  *             return PyArray_BYTES(self)             # <<<<<<<<<<<<<<
@@ -3654,7 +3654,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
   __pyx_r = PyArray_BYTES(__pyx_v_self);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":284
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":284
  * 
  *         @property
  *         cdef inline char* data(self) nogil:             # <<<<<<<<<<<<<<
@@ -3667,7 +3667,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data_data(PyArrayObject *__p
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":773
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":773
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -3684,7 +3684,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":774
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":774
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -3698,7 +3698,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":773
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":773
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -3717,7 +3717,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":776
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":776
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -3734,7 +3734,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":777
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":777
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -3748,7 +3748,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":776
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":776
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -3767,7 +3767,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":779
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":779
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -3784,7 +3784,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":780
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":780
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -3798,7 +3798,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":779
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":779
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -3817,7 +3817,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":782
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":782
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -3834,7 +3834,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":783
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":783
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -3848,7 +3848,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":782
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":782
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -3867,7 +3867,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":785
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":785
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -3884,7 +3884,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":786
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":786
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -3898,7 +3898,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":785
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":785
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -3917,7 +3917,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":788
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":788
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -3931,7 +3931,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":789
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":789
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -3941,7 +3941,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __pyx_t_1 = PyDataType_HASSUBARRAY(__pyx_v_d);
   if (__pyx_t_1) {
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":790
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":790
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -3953,7 +3953,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     __pyx_r = ((PyObject*)__pyx_v_d->subarray->shape);
     goto __pyx_L0;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":789
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":789
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
@@ -3962,7 +3962,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  */
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":792
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":792
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
@@ -3976,7 +3976,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":788
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":788
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
@@ -3991,7 +3991,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":968
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":968
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -4007,7 +4007,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_array_base", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":969
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":969
  * 
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
@@ -4016,7 +4016,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_INCREF(__pyx_v_base);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":970
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":970
  * cdef inline void set_array_base(ndarray arr, object base):
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
@@ -4025,7 +4025,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   __pyx_t_1 = PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(1, 970, __pyx_L1_error)
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":968
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":968
  *     int _import_umath() except -1
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -4041,7 +4041,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyFinishContext();
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":972
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":972
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -4056,7 +4056,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":973
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":973
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
@@ -4065,7 +4065,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":974
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":974
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -4075,7 +4075,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = (__pyx_v_base == NULL);
   if (__pyx_t_1) {
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":975
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":975
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -4086,7 +4086,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":974
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":974
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -4095,7 +4095,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  */
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":976
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":976
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
@@ -4107,7 +4107,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_r = ((PyObject *)__pyx_v_base);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":972
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":972
  *     PyArray_SetBaseObject(arr, base)
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -4122,7 +4122,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":980
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":980
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -4146,7 +4146,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_array", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":981
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4162,7 +4162,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":982
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":982
  * cdef inline int import_array() except -1:
  *     try:
  *         __pyx_import_array()             # <<<<<<<<<<<<<<
@@ -4171,7 +4171,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  */
       __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 982, __pyx_L3_error)
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":981
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4185,7 +4185,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":983
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":983
  *     try:
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -4200,7 +4200,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":984
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":984
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -4215,7 +4215,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":981
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":981
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4231,7 +4231,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":980
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":980
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -4254,7 +4254,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":986
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":986
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -4278,7 +4278,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_umath", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":987
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4294,7 +4294,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":988
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":988
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -4303,7 +4303,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 988, __pyx_L3_error)
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":987
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4317,7 +4317,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":989
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":989
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -4332,7 +4332,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":990
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":990
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -4347,7 +4347,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":987
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":987
  * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4363,7 +4363,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":986
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":986
  *         raise ImportError("numpy.core.multiarray failed to import")
  * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
@@ -4386,7 +4386,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":992
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":992
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -4410,7 +4410,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":993
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4426,7 +4426,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":994
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":994
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -4435,7 +4435,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  */
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 994, __pyx_L3_error)
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":993
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4449,7 +4449,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":995
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":995
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -4464,7 +4464,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":996
+      /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":996
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -4479,7 +4479,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":993
+    /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":993
  * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -4495,7 +4495,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":992
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":992
  *         raise ImportError("numpy.core.umath failed to import")
  * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
@@ -4518,7 +4518,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":999
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":999
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -4531,7 +4531,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_timedelta64_object", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1011
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1011
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
@@ -4541,7 +4541,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyTimedeltaArrType_Type));
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":999
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":999
  * 
  * 
  * cdef inline bint is_timedelta64_object(object obj):             # <<<<<<<<<<<<<<
@@ -4555,7 +4555,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1014
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1014
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -4568,7 +4568,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_datetime64_object", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1026
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1026
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
@@ -4578,7 +4578,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   __pyx_r = PyObject_TypeCheck(__pyx_v_obj, (&PyDatetimeArrType_Type));
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1014
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1014
  * 
  * 
  * cdef inline bint is_datetime64_object(object obj):             # <<<<<<<<<<<<<<
@@ -4592,7 +4592,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1029
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1029
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4603,7 +4603,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
 static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *__pyx_v_obj) {
   npy_datetime __pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1036
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1036
  *     also needed.  That can be found using `get_datetime64_unit`.
  *     """
  *     return (<PyDatetimeScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -4613,7 +4613,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   __pyx_r = ((PyDatetimeScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1029
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1029
  * 
  * 
  * cdef inline npy_datetime get_datetime64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4626,7 +4626,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1039
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1039
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4637,7 +4637,7 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
 static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject *__pyx_v_obj) {
   npy_timedelta __pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1043
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1043
  *     returns the int64 value underlying scalar numpy timedelta64 object
  *     """
  *     return (<PyTimedeltaScalarObject*>obj).obval             # <<<<<<<<<<<<<<
@@ -4647,7 +4647,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   __pyx_r = ((PyTimedeltaScalarObject *)__pyx_v_obj)->obval;
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1039
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1039
  * 
  * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4660,7 +4660,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   return __pyx_r;
 }
 
-/* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1046
+/* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1046
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4671,7 +4671,7 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
 static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObject *__pyx_v_obj) {
   NPY_DATETIMEUNIT __pyx_r;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1050
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1050
  *     returns the unit part of the dtype for a numpy datetime64 object.
  *     """
  *     return <NPY_DATETIMEUNIT>(<PyDatetimeScalarObject*>obj).obmeta.base             # <<<<<<<<<<<<<<
@@ -4679,7 +4679,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   __pyx_r = ((NPY_DATETIMEUNIT)((PyDatetimeScalarObject *)__pyx_v_obj)->obmeta.base);
   goto __pyx_L0;
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":1046
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":1046
  * 
  * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) nogil:             # <<<<<<<<<<<<<<
@@ -4692,7 +4692,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":8
+/* "k_vector_search/cython/kvec_general.pyx":8
  * 
  * 
  * def unique_closest(             # <<<<<<<<<<<<<<
@@ -4701,15 +4701,15 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_1unique_closest(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_1unique_closest(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_1unique_closest = {"unique_closest", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_1unique_closest, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_1unique_closest(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_1unique_closest = {"unique_closest", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_1unique_closest, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_1unique_closest(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4772,13 +4772,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("unique_closest", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 8, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.unique_closest", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.unique_closest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_list1), __pyx_ptype_5numpy_ndarray, 1, "list1", 0))) __PYX_ERR(0, 9, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_list2), __pyx_ptype_5numpy_ndarray, 1, "list2", 0))) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12kvec_general_unique_closest(__pyx_self, __pyx_v_list1, __pyx_v_list2);
+  __pyx_r = __pyx_pf_15k_vector_search_6cython_12kvec_general_unique_closest(__pyx_self, __pyx_v_list1, __pyx_v_list2);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4789,7 +4789,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_list1, PyArrayObject *__pyx_v_list2) {
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_list1, PyArrayObject *__pyx_v_list2) {
   int __pyx_v_i;
   int __pyx_v_j;
   PyArrayObject *__pyx_v_cost_matrix = 0;
@@ -4871,7 +4871,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   }
   __pyx_pybuffernd_list2.diminfo[0].strides = __pyx_pybuffernd_list2.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_list2.diminfo[0].shape = __pyx_pybuffernd_list2.rcbuffer->pybuffer.shape[0];
 
-  /* "kvec_general.pyx":16
+  /* "k_vector_search/cython/kvec_general.pyx":16
  *     cdef np.ndarray[np.intp_t, ndim=1] row_ind, col_ind
  * 
  *     cost_matrix = np.zeros((len(list2), len(list1)), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4939,7 +4939,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   __pyx_v_cost_matrix = ((PyArrayObject *)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "kvec_general.pyx":17
+  /* "k_vector_search/cython/kvec_general.pyx":17
  * 
  *     cost_matrix = np.zeros((len(list2), len(list1)), dtype=np.float64)
  *     for i in range(len(list2)):             # <<<<<<<<<<<<<<
@@ -4951,7 +4951,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_12; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "kvec_general.pyx":18
+    /* "k_vector_search/cython/kvec_general.pyx":18
  *     cost_matrix = np.zeros((len(list2), len(list1)), dtype=np.float64)
  *     for i in range(len(list2)):
  *         for j in range(len(list1)):             # <<<<<<<<<<<<<<
@@ -4963,7 +4963,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
     for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
       __pyx_v_j = __pyx_t_15;
 
-      /* "kvec_general.pyx":19
+      /* "k_vector_search/cython/kvec_general.pyx":19
  *     for i in range(len(list2)):
  *         for j in range(len(list1)):
  *             cost_matrix[i, j] = ((list1[j] - list2[i]) / list2[i])**2             # <<<<<<<<<<<<<<
@@ -5025,7 +5025,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
     }
   }
 
-  /* "kvec_general.pyx":21
+  /* "k_vector_search/cython/kvec_general.pyx":21
  *             cost_matrix[i, j] = ((list1[j] - list2[i]) / list2[i])**2
  * 
  *     row_ind, col_ind = linear_sum_assignment(cost_matrix)             # <<<<<<<<<<<<<<
@@ -5145,7 +5145,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   __pyx_v_col_ind = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "kvec_general.pyx":22
+  /* "k_vector_search/cython/kvec_general.pyx":22
  * 
  *     row_ind, col_ind = linear_sum_assignment(cost_matrix)
  *     mapping = {list2[i]: list1[j] for i, j in zip(row_ind, col_ind)}             # <<<<<<<<<<<<<<
@@ -5291,7 +5291,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   __pyx_v_mapping = ((PyObject*)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "kvec_general.pyx":23
+  /* "k_vector_search/cython/kvec_general.pyx":23
  *     row_ind, col_ind = linear_sum_assignment(cost_matrix)
  *     mapping = {list2[i]: list1[j] for i, j in zip(row_ind, col_ind)}
  *     sum_of_squares = sqrt(np.sum(cost_matrix[row_ind, col_ind]) / len(list2))             # <<<<<<<<<<<<<<
@@ -5346,7 +5346,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_sum_of_squares = sqrt(__pyx_t_25);
 
-  /* "kvec_general.pyx":25
+  /* "k_vector_search/cython/kvec_general.pyx":25
  *     sum_of_squares = sqrt(np.sum(cost_matrix[row_ind, col_ind]) / len(list2))
  * 
  *     return (mapping, sum_of_squares)             # <<<<<<<<<<<<<<
@@ -5368,7 +5368,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kvec_general.pyx":8
+  /* "k_vector_search/cython/kvec_general.pyx":8
  * 
  * 
  * def unique_closest(             # <<<<<<<<<<<<<<
@@ -5394,7 +5394,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_list2.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_row_ind.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("kvec_general.unique_closest", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.unique_closest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5413,7 +5413,7 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":28
+/* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
@@ -5422,15 +5422,15 @@ static PyObject *__pyx_pf_12kvec_general_unique_closest(CYTHON_UNUSED PyObject *
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_3indDistCalc(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_3indDistCalc(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_3indDistCalc = {"indDistCalc", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_3indDistCalc, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_3indDistCalc(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_3indDistCalc = {"indDistCalc", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_3indDistCalc, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_3indDistCalc(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5517,7 +5517,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("indDistCalc", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 28, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.indDistCalc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -5525,7 +5525,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_hkl_refls), (&PyList_Type), 1, "hkl_refls", 1))) __PYX_ERR(0, 30, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_superpeaks), (&PyList_Type), 1, "superpeaks", 1))) __PYX_ERR(0, 31, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_rep_prim_latt), (&PyList_Type), 1, "rep_prim_latt", 1))) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12kvec_general_2indDistCalc(__pyx_self, __pyx_v_point, __pyx_v_hkl_refls, __pyx_v_superpeaks, __pyx_v_rep_prim_latt);
+  __pyx_r = __pyx_pf_15k_vector_search_6cython_12kvec_general_2indDistCalc(__pyx_self, __pyx_v_point, __pyx_v_hkl_refls, __pyx_v_superpeaks, __pyx_v_rep_prim_latt);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5536,7 +5536,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":41
+/* "k_vector_search/cython/kvec_general.pyx":41
  *     satellite_peaks_m = np.empty(len(hkl_refls), dtype=np.float64)
  * 
  *     def calcSatelliteP(list hkl):             # <<<<<<<<<<<<<<
@@ -5545,15 +5545,15 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_11indDistCalc_1calcSatelliteP(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_1calcSatelliteP(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_11indDistCalc_1calcSatelliteP = {"calcSatelliteP", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_11indDistCalc_1calcSatelliteP, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_11indDistCalc_1calcSatelliteP(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_11indDistCalc_1calcSatelliteP = {"calcSatelliteP", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_1calcSatelliteP, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_1calcSatelliteP(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5604,12 +5604,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcSatelliteP", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.indDistCalc.calcSatelliteP", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc.calcSatelliteP", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_hkl), (&PyList_Type), 1, "hkl", 1))) __PYX_ERR(0, 41, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(__pyx_self, __pyx_v_hkl);
+  __pyx_r = __pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_calcSatelliteP(__pyx_self, __pyx_v_hkl);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5620,9 +5620,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *__pyx_self, PyObject *__pyx_v_hkl) {
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_outer_scope;
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *__pyx_self, PyObject *__pyx_v_hkl) {
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_outer_scope;
   PyArrayObject *__pyx_v_hkl_p_k = 0;
   PyArrayObject *__pyx_v_k_cart = 0;
   __pyx_t_5numpy_float64_t __pyx_v_d_hkl_p_k;
@@ -5648,7 +5648,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("calcSatelliteP", 0);
-  __pyx_outer_scope = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __pyx_pybuffer_hkl_p_k.pybuffer.buf = NULL;
   __pyx_pybuffer_hkl_p_k.refcount = 0;
@@ -5659,7 +5659,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   __pyx_pybuffernd_k_cart.data = NULL;
   __pyx_pybuffernd_k_cart.rcbuffer = &__pyx_pybuffer_k_cart;
 
-  /* "kvec_general.pyx":46
+  /* "k_vector_search/cython/kvec_general.pyx":46
  *         cdef np.float64_t d_hkl_p_k
  * 
  *         hkl_p_k = np.array(hkl) + np.array(point)             # <<<<<<<<<<<<<<
@@ -5744,7 +5744,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   __pyx_v_hkl_p_k = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":47
+  /* "k_vector_search/cython/kvec_general.pyx":47
  * 
  *         hkl_p_k = np.array(hkl) + np.array(point)
  *         k_cart = np.matmul(hkl_p_k, np.array(rep_prim_latt))             # <<<<<<<<<<<<<<
@@ -5826,7 +5826,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   __pyx_v_k_cart = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":48
+  /* "k_vector_search/cython/kvec_general.pyx":48
  *         hkl_p_k = np.array(hkl) + np.array(point)
  *         k_cart = np.matmul(hkl_p_k, np.array(rep_prim_latt))
  *         d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)             # <<<<<<<<<<<<<<
@@ -5877,7 +5877,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_d_hkl_p_k = __pyx_t_12;
 
-  /* "kvec_general.pyx":49
+  /* "k_vector_search/cython/kvec_general.pyx":49
  *         k_cart = np.matmul(hkl_p_k, np.array(rep_prim_latt))
  *         d_hkl_p_k = 2. * np.pi / np.linalg.norm(k_cart)
  *         return d_hkl_p_k             # <<<<<<<<<<<<<<
@@ -5891,7 +5891,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "kvec_general.pyx":41
+  /* "k_vector_search/cython/kvec_general.pyx":41
  *     satellite_peaks_m = np.empty(len(hkl_refls), dtype=np.float64)
  * 
  *     def calcSatelliteP(list hkl):             # <<<<<<<<<<<<<<
@@ -5913,7 +5913,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_hkl_p_k.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_k_cart.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("kvec_general.indDistCalc.calcSatelliteP", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc.calcSatelliteP", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5927,7 +5927,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":51
+/* "k_vector_search/cython/kvec_general.pyx":51
  *         return d_hkl_p_k
  * 
  *     def calcSatelliteM(list hkl):             # <<<<<<<<<<<<<<
@@ -5936,15 +5936,15 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(PyObject *
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_11indDistCalc_3calcSatelliteM(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_3calcSatelliteM(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_11indDistCalc_3calcSatelliteM = {"calcSatelliteM", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_11indDistCalc_3calcSatelliteM, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_11indDistCalc_3calcSatelliteM(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_11indDistCalc_3calcSatelliteM = {"calcSatelliteM", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_3calcSatelliteM, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_11indDistCalc_3calcSatelliteM(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5995,12 +5995,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("calcSatelliteM", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.indDistCalc.calcSatelliteM", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc.calcSatelliteM", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_hkl), (&PyList_Type), 1, "hkl", 1))) __PYX_ERR(0, 51, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(__pyx_self, __pyx_v_hkl);
+  __pyx_r = __pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_2calcSatelliteM(__pyx_self, __pyx_v_hkl);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6011,9 +6011,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject *__pyx_self, PyObject *__pyx_v_hkl) {
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_outer_scope;
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject *__pyx_self, PyObject *__pyx_v_hkl) {
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_outer_scope;
   PyArrayObject *__pyx_v_hkl_m_k = 0;
   PyArrayObject *__pyx_v_k_cart = 0;
   __pyx_t_5numpy_float64_t __pyx_v_d_hkl_m_k;
@@ -6039,7 +6039,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("calcSatelliteM", 0);
-  __pyx_outer_scope = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __pyx_pybuffer_hkl_m_k.pybuffer.buf = NULL;
   __pyx_pybuffer_hkl_m_k.refcount = 0;
@@ -6050,7 +6050,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   __pyx_pybuffernd_k_cart.data = NULL;
   __pyx_pybuffernd_k_cart.rcbuffer = &__pyx_pybuffer_k_cart;
 
-  /* "kvec_general.pyx":56
+  /* "k_vector_search/cython/kvec_general.pyx":56
  *         cdef np.float64_t d_hkl_m_k
  * 
  *         hkl_m_k = np.array(hkl) - np.array(point)             # <<<<<<<<<<<<<<
@@ -6135,7 +6135,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   __pyx_v_hkl_m_k = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":57
+  /* "k_vector_search/cython/kvec_general.pyx":57
  * 
  *         hkl_m_k = np.array(hkl) - np.array(point)
  *         k_cart = np.matmul(hkl_m_k, np.array(rep_prim_latt))             # <<<<<<<<<<<<<<
@@ -6217,7 +6217,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   __pyx_v_k_cart = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":58
+  /* "k_vector_search/cython/kvec_general.pyx":58
  *         hkl_m_k = np.array(hkl) - np.array(point)
  *         k_cart = np.matmul(hkl_m_k, np.array(rep_prim_latt))
  *         d_hkl_m_k = 2. * np.pi / np.linalg.norm(k_cart)             # <<<<<<<<<<<<<<
@@ -6268,7 +6268,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_d_hkl_m_k = __pyx_t_12;
 
-  /* "kvec_general.pyx":59
+  /* "k_vector_search/cython/kvec_general.pyx":59
  *         k_cart = np.matmul(hkl_m_k, np.array(rep_prim_latt))
  *         d_hkl_m_k = 2. * np.pi / np.linalg.norm(k_cart)
  *         return d_hkl_m_k             # <<<<<<<<<<<<<<
@@ -6282,7 +6282,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "kvec_general.pyx":51
+  /* "k_vector_search/cython/kvec_general.pyx":51
  *         return d_hkl_p_k
  * 
  *     def calcSatelliteM(list hkl):             # <<<<<<<<<<<<<<
@@ -6304,7 +6304,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_hkl_m_k.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_k_cart.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("kvec_general.indDistCalc.calcSatelliteM", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc.calcSatelliteM", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6318,7 +6318,7 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":28
+/* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
@@ -6326,8 +6326,8 @@ static PyObject *__pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(PyObject 
  *         list hkl_refls,
  */
 
-static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_point, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt) {
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_point, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt) {
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_cur_scope;
   int __pyx_v_i;
   PyArrayObject *__pyx_v_satellite_peaks_p = 0;
   PyArrayObject *__pyx_v_satellite_peaks_m = 0;
@@ -6367,9 +6367,9 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("indDistCalc", 0);
-  __pyx_cur_scope = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)__pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc(__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)__pyx_tp_new_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 28, __pyx_L1_error)
   } else {
@@ -6394,7 +6394,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_pybuffernd_satellite_peaks.data = NULL;
   __pyx_pybuffernd_satellite_peaks.rcbuffer = &__pyx_pybuffer_satellite_peaks;
 
-  /* "kvec_general.pyx":38
+  /* "k_vector_search/cython/kvec_general.pyx":38
  *     cdef np.ndarray[np.float64_t, ndim=1] satellite_peaks
  * 
  *     satellite_peaks_p = np.empty(len(hkl_refls), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -6455,7 +6455,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_v_satellite_peaks_p = ((PyArrayObject *)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "kvec_general.pyx":39
+  /* "k_vector_search/cython/kvec_general.pyx":39
  * 
  *     satellite_peaks_p = np.empty(len(hkl_refls), dtype=np.float64)
  *     satellite_peaks_m = np.empty(len(hkl_refls), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -6516,31 +6516,31 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_v_satellite_peaks_m = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":41
+  /* "k_vector_search/cython/kvec_general.pyx":41
  *     satellite_peaks_m = np.empty(len(hkl_refls), dtype=np.float64)
  * 
  *     def calcSatelliteP(list hkl):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[np.float64_t, ndim=1] hkl_p_k
  *         cdef np.ndarray[np.float64_t, ndim=1] k_cart
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_11indDistCalc_1calcSatelliteP, 0, __pyx_n_s_indDistCalc_locals_calcSatellite, ((PyObject*)__pyx_cur_scope), __pyx_n_s_kvec_general, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_11indDistCalc_1calcSatelliteP, 0, __pyx_n_s_indDistCalc_locals_calcSatellite, ((PyObject*)__pyx_cur_scope), __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_calcSatelliteP = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":51
+  /* "k_vector_search/cython/kvec_general.pyx":51
  *         return d_hkl_p_k
  * 
  *     def calcSatelliteM(list hkl):             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[np.float64_t, ndim=1] hkl_m_k
  *         cdef np.ndarray[np.float64_t, ndim=1] k_cart
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_11indDistCalc_3calcSatelliteM, 0, __pyx_n_s_indDistCalc_locals_calcSatellite_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_kvec_general, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_11indDistCalc_3calcSatelliteM, 0, __pyx_n_s_indDistCalc_locals_calcSatellite_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_v_calcSatelliteM = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":61
+  /* "k_vector_search/cython/kvec_general.pyx":61
  *         return d_hkl_m_k
  * 
  *     for i in range(len(hkl_refls)):             # <<<<<<<<<<<<<<
@@ -6556,7 +6556,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_12; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "kvec_general.pyx":62
+    /* "k_vector_search/cython/kvec_general.pyx":62
  * 
  *     for i in range(len(hkl_refls)):
  *         satellite_peaks_p[i] = calcSatelliteP(hkl_refls[i])             # <<<<<<<<<<<<<<
@@ -6570,7 +6570,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_hkl_refls, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_5))) __PYX_ERR(0, 62, __pyx_L1_error)
-    __pyx_t_6 = __pyx_pf_12kvec_general_11indDistCalc_calcSatelliteP(__pyx_v_calcSatelliteP, ((PyObject*)__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_6 = __pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_calcSatelliteP(__pyx_v_calcSatelliteP, ((PyObject*)__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_13 = __pyx_PyFloat_AsDouble(__pyx_t_6); if (unlikely((__pyx_t_13 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
@@ -6587,7 +6587,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     }
     *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_satellite_peaks_p.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_satellite_peaks_p.diminfo[0].strides) = __pyx_t_13;
 
-    /* "kvec_general.pyx":63
+    /* "k_vector_search/cython/kvec_general.pyx":63
  *     for i in range(len(hkl_refls)):
  *         satellite_peaks_p[i] = calcSatelliteP(hkl_refls[i])
  *         satellite_peaks_m[i] = calcSatelliteM(hkl_refls[i])             # <<<<<<<<<<<<<<
@@ -6601,7 +6601,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     __pyx_t_6 = __Pyx_GetItemInt_List(__pyx_v_hkl_refls, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (!(likely(PyList_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_6))) __PYX_ERR(0, 63, __pyx_L1_error)
-    __pyx_t_5 = __pyx_pf_12kvec_general_11indDistCalc_2calcSatelliteM(__pyx_v_calcSatelliteM, ((PyObject*)__pyx_t_6)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_5 = __pyx_pf_15k_vector_search_6cython_12kvec_general_11indDistCalc_2calcSatelliteM(__pyx_v_calcSatelliteM, ((PyObject*)__pyx_t_6)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_13 = __pyx_PyFloat_AsDouble(__pyx_t_5); if (unlikely((__pyx_t_13 == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 63, __pyx_L1_error)
@@ -6619,7 +6619,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_satellite_peaks_m.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_satellite_peaks_m.diminfo[0].strides) = __pyx_t_13;
   }
 
-  /* "kvec_general.pyx":65
+  /* "k_vector_search/cython/kvec_general.pyx":65
  *         satellite_peaks_m[i] = calcSatelliteM(hkl_refls[i])
  * 
  *     satellite_peaks = np.concatenate(             # <<<<<<<<<<<<<<
@@ -6632,7 +6632,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "kvec_general.pyx":66
+  /* "k_vector_search/cython/kvec_general.pyx":66
  * 
  *     satellite_peaks = np.concatenate(
  *         (satellite_peaks_p, satellite_peaks_m)             # <<<<<<<<<<<<<<
@@ -6669,7 +6669,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "kvec_general.pyx":65
+  /* "k_vector_search/cython/kvec_general.pyx":65
  *         satellite_peaks_m[i] = calcSatelliteM(hkl_refls[i])
  * 
  *     satellite_peaks = np.concatenate(             # <<<<<<<<<<<<<<
@@ -6699,7 +6699,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_v_satellite_peaks = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "kvec_general.pyx":69
+  /* "k_vector_search/cython/kvec_general.pyx":69
  *     )
  * 
  *     _, indicator_dist = unique_closest(             # <<<<<<<<<<<<<<
@@ -6709,7 +6709,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_unique_closest); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "kvec_general.pyx":71
+  /* "k_vector_search/cython/kvec_general.pyx":71
  *     _, indicator_dist = unique_closest(
  *         satellite_peaks,
  *         np.array(superpeaks, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -6808,7 +6808,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     __pyx_L6_unpacking_done:;
   }
 
-  /* "kvec_general.pyx":69
+  /* "k_vector_search/cython/kvec_general.pyx":69
  *     )
  * 
  *     _, indicator_dist = unique_closest(             # <<<<<<<<<<<<<<
@@ -6820,7 +6820,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_v_indicator_dist = __pyx_t_18;
   __pyx_t_18 = 0;
 
-  /* "kvec_general.pyx":74
+  /* "k_vector_search/cython/kvec_general.pyx":74
  *     )
  * 
  *     return (point, indicator_dist)             # <<<<<<<<<<<<<<
@@ -6840,7 +6840,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "kvec_general.pyx":28
+  /* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
@@ -6865,7 +6865,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_satellite_peaks_m.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_satellite_peaks_p.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("kvec_general.indDistCalc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.indDistCalc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6886,7 +6886,7 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":76
+/* "k_vector_search/cython/kvec_general.pyx":76
  *     return (point, indicator_dist)
  * 
  * def parallel_proc(             # <<<<<<<<<<<<<<
@@ -6895,15 +6895,15 @@ static PyObject *__pyx_pf_12kvec_general_2indDistCalc(CYTHON_UNUSED PyObject *__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_5parallel_proc(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_5parallel_proc(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_5parallel_proc = {"parallel_proc", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_5parallel_proc, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_5parallel_proc(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_5parallel_proc = {"parallel_proc", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_5parallel_proc, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_5parallel_proc(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7009,7 +7009,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("parallel_proc", 0, 4, 5, __pyx_nargs); __PYX_ERR(0, 76, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -7017,7 +7017,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_hkl_refls), (&PyList_Type), 1, "hkl_refls", 1))) __PYX_ERR(0, 78, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_superpeaks), (&PyList_Type), 1, "superpeaks", 1))) __PYX_ERR(0, 79, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_rep_prim_latt), (&PyList_Type), 1, "rep_prim_latt", 1))) __PYX_ERR(0, 80, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12kvec_general_4parallel_proc(__pyx_self, __pyx_v_points, __pyx_v_hkl_refls, __pyx_v_superpeaks, __pyx_v_rep_prim_latt, __pyx_v_processes);
+  __pyx_r = __pyx_pf_15k_vector_search_6cython_12kvec_general_4parallel_proc(__pyx_self, __pyx_v_points, __pyx_v_hkl_refls, __pyx_v_superpeaks, __pyx_v_rep_prim_latt, __pyx_v_processes);
 
   /* function exit code */
   goto __pyx_L0;
@@ -7028,22 +7028,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":98
+/* "k_vector_search/cython/kvec_general.pyx":98
  *         )
  * 
  *     return sorted(result, key=lambda x: x[1])[:10]             # <<<<<<<<<<<<<<
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12kvec_general_13parallel_proc_lambda(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_13parallel_proc_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12kvec_general_13parallel_proc_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12kvec_general_13parallel_proc_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12kvec_general_13parallel_proc_lambda(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_15k_vector_search_6cython_12kvec_general_13parallel_proc_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_15k_vector_search_6cython_12kvec_general_13parallel_proc_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_15k_vector_search_6cython_12kvec_general_13parallel_proc_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7094,7 +7094,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 98, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("kvec_general.parallel_proc.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.parallel_proc.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -7123,7 +7123,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("kvec_general.parallel_proc.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.parallel_proc.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7131,7 +7131,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-/* "kvec_general.pyx":76
+/* "k_vector_search/cython/kvec_general.pyx":76
  *     return (point, indicator_dist)
  * 
  * def parallel_proc(             # <<<<<<<<<<<<<<
@@ -7139,7 +7139,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
  *         list hkl_refls,
  */
 
-static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_points, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt, int __pyx_v_processes) {
+static PyObject *__pyx_pf_15k_vector_search_6cython_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_points, PyObject *__pyx_v_hkl_refls, PyObject *__pyx_v_superpeaks, PyObject *__pyx_v_rep_prim_latt, int __pyx_v_processes) {
   PyObject *__pyx_v_pool = NULL;
   PyObject *__pyx_v_result = NULL;
   PyObject *__pyx_8genexpr1__pyx_v_point_list = NULL;
@@ -7182,7 +7182,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
   }
   __pyx_pybuffernd_points.diminfo[0].strides = __pyx_pybuffernd_points.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_points.diminfo[0].shape = __pyx_pybuffernd_points.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_points.diminfo[1].strides = __pyx_pybuffernd_points.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_points.diminfo[1].shape = __pyx_pybuffernd_points.rcbuffer->pybuffer.shape[1];
 
-  /* "kvec_general.pyx":84
+  /* "k_vector_search/cython/kvec_general.pyx":84
  *     ):
  *     cdef int i
  *     with Pool(processes=processes) as pool:             # <<<<<<<<<<<<<<
@@ -7241,7 +7241,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
           __pyx_v_pool = __pyx_t_1;
           __pyx_t_1 = 0;
 
-          /* "kvec_general.pyx":85
+          /* "k_vector_search/cython/kvec_general.pyx":85
  *     cdef int i
  *     with Pool(processes=processes) as pool:
  *         result = pool.starmap(             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
           __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_pool, __pyx_n_s_starmap); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_3);
 
-          /* "kvec_general.pyx":86
+          /* "k_vector_search/cython/kvec_general.pyx":86
  *     with Pool(processes=processes) as pool:
  *         result = pool.starmap(
  *             indDistCalc,             # <<<<<<<<<<<<<<
@@ -7262,7 +7262,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
           __Pyx_GOTREF(__pyx_t_2);
           { /* enter inner scope */
 
-            /* "kvec_general.pyx":87
+            /* "k_vector_search/cython/kvec_general.pyx":87
  *         result = pool.starmap(
  *             indDistCalc,
  *             [             # <<<<<<<<<<<<<<
@@ -7272,7 +7272,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
             __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L15_error)
             __Pyx_GOTREF(__pyx_t_5);
 
-            /* "kvec_general.pyx":94
+            /* "k_vector_search/cython/kvec_general.pyx":94
  *                     rep_prim_latt
  *                 )
  *                 for point_list in points             # <<<<<<<<<<<<<<
@@ -7322,7 +7322,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
               __pyx_t_13 = 0;
               { /* enter inner scope */
 
-                /* "kvec_general.pyx":89
+                /* "k_vector_search/cython/kvec_general.pyx":89
  *             [
  *                 (
  *                     [float(point) for point in point_list],             # <<<<<<<<<<<<<<
@@ -7386,7 +7386,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
                 __pyx_L24_exit_scope:;
               } /* exit inner scope */
 
-              /* "kvec_general.pyx":92
+              /* "k_vector_search/cython/kvec_general.pyx":92
  *                     hkl_refls,
  *                     superpeaks,
  *                     rep_prim_latt             # <<<<<<<<<<<<<<
@@ -7410,7 +7410,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
               if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_14))) __PYX_ERR(0, 87, __pyx_L15_error)
               __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-              /* "kvec_general.pyx":94
+              /* "k_vector_search/cython/kvec_general.pyx":94
  *                     rep_prim_latt
  *                 )
  *                 for point_list in points             # <<<<<<<<<<<<<<
@@ -7451,7 +7451,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
           __pyx_v_result = __pyx_t_1;
           __pyx_t_1 = 0;
 
-          /* "kvec_general.pyx":84
+          /* "k_vector_search/cython/kvec_general.pyx":84
  *     ):
  *     cdef int i
  *     with Pool(processes=processes) as pool:             # <<<<<<<<<<<<<<
@@ -7473,7 +7473,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         /*except:*/ {
-          __Pyx_AddTraceback("kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          __Pyx_AddTraceback("k_vector_search.cython.kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
           if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_3, &__pyx_t_5) < 0) __PYX_ERR(0, 84, __pyx_L9_except_error)
           __Pyx_XGOTREF(__pyx_t_1);
           __Pyx_XGOTREF(__pyx_t_3);
@@ -7536,7 +7536,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
     __pyx_L30:;
   }
 
-  /* "kvec_general.pyx":98
+  /* "k_vector_search/cython/kvec_general.pyx":98
  *         )
  * 
  *     return sorted(result, key=lambda x: x[1])[:10]             # <<<<<<<<<<<<<<
@@ -7550,7 +7550,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_result);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_13parallel_proc_lambda, 0, __pyx_n_s_parallel_proc_locals_lambda, NULL, __pyx_n_s_kvec_general, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_13parallel_proc_lambda, 0, __pyx_n_s_parallel_proc_locals_lambda, NULL, __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_key, __pyx_t_1) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -7565,7 +7565,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "kvec_general.pyx":76
+  /* "k_vector_search/cython/kvec_general.pyx":76
  *     return (point, indicator_dist)
  * 
  * def parallel_proc(             # <<<<<<<<<<<<<<
@@ -7589,7 +7589,7 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_points.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("k_vector_search.cython.kvec_general.parallel_proc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -7604,18 +7604,18 @@ static PyObject *__pyx_pf_12kvec_general_4parallel_proc(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-static struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_freelist_12kvec_general___pyx_scope_struct__indDistCalc[8];
-static int __pyx_freecount_12kvec_general___pyx_scope_struct__indDistCalc = 0;
+static struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *__pyx_freelist_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc[8];
+static int __pyx_freecount_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc = 0;
 
-static PyObject *__pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((int)(__pyx_freecount_12kvec_general___pyx_scope_struct__indDistCalc > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc)))) {
-    o = (PyObject*)__pyx_freelist_12kvec_general___pyx_scope_struct__indDistCalc[--__pyx_freecount_12kvec_general___pyx_scope_struct__indDistCalc];
-    memset(o, 0, sizeof(struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((int)(__pyx_freecount_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc)))) {
+    o = (PyObject*)__pyx_freelist_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc[--__pyx_freecount_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc];
+    memset(o, 0, sizeof(struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -7626,11 +7626,11 @@ static PyObject *__pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc(PyT
   return o;
 }
 
-static void __pyx_tp_dealloc_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o) {
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)o;
+static void __pyx_tp_dealloc_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o) {
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_12kvec_general___pyx_scope_struct__indDistCalc) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -7638,16 +7638,16 @@ static void __pyx_tp_dealloc_12kvec_general___pyx_scope_struct__indDistCalc(PyOb
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_point);
   Py_CLEAR(p->__pyx_v_rep_prim_latt);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((int)(__pyx_freecount_12kvec_general___pyx_scope_struct__indDistCalc < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc)))) {
-    __pyx_freelist_12kvec_general___pyx_scope_struct__indDistCalc[__pyx_freecount_12kvec_general___pyx_scope_struct__indDistCalc++] = ((struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((int)(__pyx_freecount_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc)))) {
+    __pyx_freelist_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc[__pyx_freecount_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc++] = ((struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)o;
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)o;
   if (p->__pyx_v_point) {
     e = (*v)(p->__pyx_v_point, a); if (e) return e;
   }
@@ -7657,9 +7657,9 @@ static int __pyx_tp_traverse_12kvec_general___pyx_scope_struct__indDistCalc(PyOb
   return 0;
 }
 
-static int __pyx_tp_clear_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o) {
+static int __pyx_tp_clear_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc *)o;
+  struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *p = (struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc *)o;
   tmp = ((PyObject*)p->__pyx_v_point);
   p->__pyx_v_point = ((PyObject*)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -7669,28 +7669,28 @@ static int __pyx_tp_clear_12kvec_general___pyx_scope_struct__indDistCalc(PyObjec
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_12kvec_general___pyx_scope_struct__indDistCalc},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_12kvec_general___pyx_scope_struct__indDistCalc},
-  {Py_tp_clear, (void *)__pyx_tp_clear_12kvec_general___pyx_scope_struct__indDistCalc},
-  {Py_tp_new, (void *)__pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc},
+static PyType_Slot __pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc},
+  {Py_tp_clear, (void *)__pyx_tp_clear_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc},
+  {Py_tp_new, (void *)__pyx_tp_new_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc},
   {0, 0},
 };
-static PyType_Spec __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc_spec = {
-  "kvec_general.__pyx_scope_struct__indDistCalc",
-  sizeof(struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc),
+static PyType_Spec __pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc_spec = {
+  "k_vector_search.cython.kvec_general.__pyx_scope_struct__indDistCalc",
+  sizeof(struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc_slots,
+  __pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc = {
+static PyTypeObject __pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc = {
   PyVarObject_HEAD_INIT(0, 0)
-  "kvec_general.""__pyx_scope_struct__indDistCalc", /*tp_name*/
-  sizeof(struct __pyx_obj_12kvec_general___pyx_scope_struct__indDistCalc), /*tp_basicsize*/
+  "k_vector_search.cython.kvec_general.""__pyx_scope_struct__indDistCalc", /*tp_name*/
+  sizeof(struct __pyx_obj_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_dealloc*/
+  __pyx_tp_dealloc_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -7717,8 +7717,8 @@ static PyTypeObject __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc = 
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_traverse*/
-  __pyx_tp_clear_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_clear*/
+  __pyx_tp_traverse_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_traverse*/
+  __pyx_tp_clear_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -7735,7 +7735,7 @@ static PyTypeObject __pyx_type_12kvec_general___pyx_scope_struct__indDistCalc = 
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_new*/
+  __pyx_tp_new_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -7823,8 +7823,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
     {&__pyx_n_s_j, __pyx_k_j, sizeof(__pyx_k_j), 0, 0, 1, 1},
     {&__pyx_n_s_k_cart, __pyx_k_k_cart, sizeof(__pyx_k_k_cart), 0, 0, 1, 1},
+    {&__pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_k_k_vector_search_cython_kvec_gene, sizeof(__pyx_k_k_vector_search_cython_kvec_gene), 0, 0, 1, 1},
     {&__pyx_n_s_key, __pyx_k_key, sizeof(__pyx_k_key), 0, 0, 1, 1},
-    {&__pyx_n_s_kvec_general, __pyx_k_kvec_general, sizeof(__pyx_k_kvec_general), 0, 0, 1, 1},
     {&__pyx_kp_s_kvec_general_pyx, __pyx_k_kvec_general_pyx, sizeof(__pyx_k_kvec_general_pyx), 0, 0, 1, 0},
     {&__pyx_n_s_linalg, __pyx_k_linalg, sizeof(__pyx_k_linalg), 0, 0, 1, 1},
     {&__pyx_n_s_linear_sum_assignment, __pyx_k_linear_sum_assignment, sizeof(__pyx_k_linear_sum_assignment), 0, 0, 1, 1},
@@ -7887,7 +7887,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":984
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":984
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy.core.multiarray failed to import")             # <<<<<<<<<<<<<<
@@ -7898,7 +7898,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "C:/Users/kviet/.conda/envs/seekpath/lib/site-packages/numpy/__init__.cython-30.pxd":990
+  /* "../../../../anaconda3/envs/seekpath/lib/python3.10/site-packages/numpy/__init__.cython-30.pxd":990
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy.core.umath failed to import")             # <<<<<<<<<<<<<<
@@ -7909,7 +7909,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "kvec_general.pyx":41
+  /* "k_vector_search/cython/kvec_general.pyx":41
  *     satellite_peaks_m = np.empty(len(hkl_refls), dtype=np.float64)
  * 
  *     def calcSatelliteP(list hkl):             # <<<<<<<<<<<<<<
@@ -7921,7 +7921,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__3);
   __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_kvec_general_pyx, __pyx_n_s_calcSatelliteP, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 41, __pyx_L1_error)
 
-  /* "kvec_general.pyx":51
+  /* "k_vector_search/cython/kvec_general.pyx":51
  *         return d_hkl_p_k
  * 
  *     def calcSatelliteM(list hkl):             # <<<<<<<<<<<<<<
@@ -7933,7 +7933,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__5);
   __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_kvec_general_pyx, __pyx_n_s_calcSatelliteM, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 51, __pyx_L1_error)
 
-  /* "kvec_general.pyx":84
+  /* "k_vector_search/cython/kvec_general.pyx":84
  *     ):
  *     cdef int i
  *     with Pool(processes=processes) as pool:             # <<<<<<<<<<<<<<
@@ -7944,7 +7944,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "kvec_general.pyx":98
+  /* "k_vector_search/cython/kvec_general.pyx":98
  *         )
  * 
  *     return sorted(result, key=lambda x: x[1])[:10]             # <<<<<<<<<<<<<<
@@ -7953,7 +7953,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_slice__8);
   __Pyx_GIVEREF(__pyx_slice__8);
 
-  /* "kvec_general.pyx":8
+  /* "k_vector_search/cython/kvec_general.pyx":8
  * 
  * 
  * def unique_closest(             # <<<<<<<<<<<<<<
@@ -7965,7 +7965,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__11);
   __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_kvec_general_pyx, __pyx_n_s_unique_closest, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 8, __pyx_L1_error)
 
-  /* "kvec_general.pyx":28
+  /* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
@@ -7977,7 +7977,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__14);
   __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_kvec_general_pyx, __pyx_n_s_indDistCalc, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 28, __pyx_L1_error)
 
-  /* "kvec_general.pyx":76
+  /* "k_vector_search/cython/kvec_general.pyx":76
  *     return (point, indicator_dist)
  * 
  * def parallel_proc(             # <<<<<<<<<<<<<<
@@ -8072,22 +8072,22 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc_spec, NULL); if (unlikely(!__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc)) __PYX_ERR(0, 28, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc_spec, __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc_spec, NULL); if (unlikely(!__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc)) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc_spec, __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
   #else
-  __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc = &__pyx_type_12kvec_general___pyx_scope_struct__indDistCalc;
+  __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc = &__pyx_type_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc->tp_print = 0;
+  __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc->tp_dictoffset && __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_ptype_12kvec_general___pyx_scope_struct__indDistCalc->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc->tp_dictoffset && __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_15k_vector_search_6cython_12kvec_general___pyx_scope_struct__indDistCalc->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -8412,14 +8412,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_kvec_general) {
+  if (__pyx_module_is_main_k_vector_search__cython__kvec_general) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "kvec_general")) {
-      if (unlikely((PyDict_SetItemString(modules, "kvec_general", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "k_vector_search.cython.kvec_general")) {
+      if (unlikely((PyDict_SetItemString(modules, "k_vector_search.cython.kvec_general", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -8440,7 +8440,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "kvec_general.pyx":1
+  /* "k_vector_search/cython/kvec_general.pyx":1
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * from scipy.optimize import linear_sum_assignment
@@ -8450,7 +8450,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "kvec_general.pyx":3
+  /* "k_vector_search/cython/kvec_general.pyx":3
  * import numpy as np
  * cimport numpy as np
  * from scipy.optimize import linear_sum_assignment             # <<<<<<<<<<<<<<
@@ -8471,7 +8471,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "kvec_general.pyx":4
+  /* "k_vector_search/cython/kvec_general.pyx":4
  * cimport numpy as np
  * from scipy.optimize import linear_sum_assignment
  * from multiprocessing import Pool             # <<<<<<<<<<<<<<
@@ -8492,31 +8492,31 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "kvec_general.pyx":8
+  /* "k_vector_search/cython/kvec_general.pyx":8
  * 
  * 
  * def unique_closest(             # <<<<<<<<<<<<<<
  *         np.ndarray[np.float64_t, ndim=1] list1,
  *         np.ndarray[np.float64_t, ndim=1] list2
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_1unique_closest, 0, __pyx_n_s_unique_closest, NULL, __pyx_n_s_kvec_general, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_1unique_closest, 0, __pyx_n_s_unique_closest, NULL, __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_unique_closest, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "kvec_general.pyx":28
+  /* "k_vector_search/cython/kvec_general.pyx":28
  * 
  * 
  * def indDistCalc(             # <<<<<<<<<<<<<<
  *         list point,
  *         list hkl_refls,
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_3indDistCalc, 0, __pyx_n_s_indDistCalc, NULL, __pyx_n_s_kvec_general, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_3indDistCalc, 0, __pyx_n_s_indDistCalc, NULL, __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_indDistCalc, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "kvec_general.pyx":81
+  /* "k_vector_search/cython/kvec_general.pyx":81
  *         list superpeaks,
  *         list rep_prim_latt,
  *         int processes=4             # <<<<<<<<<<<<<<
@@ -8526,7 +8526,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_PyInt_From_int(((int)4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "kvec_general.pyx":76
+  /* "k_vector_search/cython/kvec_general.pyx":76
  *     return (point, indicator_dist)
  * 
  * def parallel_proc(             # <<<<<<<<<<<<<<
@@ -8538,14 +8538,14 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12kvec_general_5parallel_proc, 0, __pyx_n_s_parallel_proc, NULL, __pyx_n_s_kvec_general, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_15k_vector_search_6cython_12kvec_general_5parallel_proc, 0, __pyx_n_s_parallel_proc, NULL, __pyx_n_s_k_vector_search_cython_kvec_gene, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_parallel_proc, __pyx_t_2) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "kvec_general.pyx":1
+  /* "k_vector_search/cython/kvec_general.pyx":1
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
  * from scipy.optimize import linear_sum_assignment
@@ -8563,7 +8563,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init kvec_general", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init k_vector_search.cython.kvec_general", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -8577,7 +8577,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init kvec_general");
+    PyErr_SetString(PyExc_ImportError, "init k_vector_search.cython.kvec_general");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -1,2 +1,4 @@
 *.pyc
 .vscode
+k_vector_search/cython/build
+k_vector_search/cython/__init__.py
