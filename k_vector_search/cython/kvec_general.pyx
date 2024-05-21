@@ -10,19 +10,23 @@ def unique_closest(
         np.ndarray[np.float64_t, ndim=1] list2
     ):
     cdef int i, j
-    cdef np.ndarray[np.float64_t, ndim=2] cost_matrix
+    cdef np.ndarray[np.float64_t, ndim=2] cost_matrix, cost_matrix_dd
     cdef np.ndarray[np.intp_t, ndim=1] row_ind, col_ind
 
     cost_matrix = np.zeros((len(list2), len(list1)), dtype=np.float64)
+    cost_matrix_dd = np.zeros((len(list2), len(list1)), dtype=np.float64)
     for i in range(len(list2)):
         for j in range(len(list1)):
             cost_matrix[i, j] = ((list1[j] - list2[i]) / list2[i])**2
+            cost_matrix_dd[i, j] = (list1[j] - list2[i])**2
 
     row_ind, col_ind = linear_sum_assignment(cost_matrix)
     mapping = {list2[i]: list1[j] for i, j in zip(row_ind, col_ind)}
-    sum_of_squares = sqrt(np.sum(cost_matrix[row_ind, col_ind]) / len(list2))
+    sum_of_squares = sqrt(np.sum(cost_matrix[row_ind, col_ind])) / len(list2)
+    ave_dd = sqrt(np.sum(cost_matrix_dd[row_ind, col_ind])) / len(list2)
+    max_dd = sqrt(np.max(cost_matrix_dd[row_ind, col_ind]))
 
-    return (mapping, sum_of_squares)
+    return (mapping, sum_of_squares, ave_dd, max_dd)
 
 
 def indDistCalc(
@@ -66,12 +70,12 @@ def indDistCalc(
         (satellite_peaks_p, satellite_peaks_m)
     )
 
-    _, indicator_dist = unique_closest(
+    _, indicator_dist, ave_dd, max_dd = unique_closest(
         satellite_peaks,
         np.array(superpeaks, dtype=np.float64)
     )
 
-    return (point, indicator_dist)
+    return (point, indicator_dist, ave_dd, max_dd)
 
 def parallel_proc(
         np.ndarray[np.float64_t, ndim=2] points,
