@@ -1,0 +1,257 @@
+Unique ID generation
+===
+Atom types present:  ['Cr', 'Cr', 'Cr', 'Sb', 'Sb', 'Se']
+Atom type IDs:  [1, 1, 1, 2, 2, 3]
+
+Lattice vectors construction
+===
+Cell parameters:  [5.0, 5.0, 5.0, 90, 90.0, 90.0]
+Lattice vectors:  [[5.0, 3.061616997868383e-16, 3.061616997868383e-16], [0.0, 5.0, 3.061616997868383e-16], [0.0, 0.0, 5.0]]
+|a| =  5.0
+|b| =  5.0
+|c| =  5.0
+alpha =  90.0
+beta =  90.0
+gamma =  90.0
+
+Cell parameters:  [5.0, 5.0, 10.0, 90.0, 90.0, 120.0]
+Lattice vectors:  [[4.330127018922194, -2.499999999999999, 3.061616997868383e-16], [0.0, 5.0, 3.061616997868383e-16], [0.0, 0.0, 10.0]]
+|a| =  5.0
+|b| =  5.0
+|c| =  10.0
+alpha =  90.0
+beta =  90.0
+gamma =  119.99999999999999
+
+Cell parameters:  [5.0, 6.0, 7.0, 91.0, 95.0, 112.0]
+Lattice vectors:  [[4.612181555733592, -1.880924828270247, -0.4357787137382912], [0.0, 5.999086170938348, -0.10471443862370086], [0.0, 0.0, 7.0]]
+|a| =  5.0
+|b| =  6.000000000000001
+|c| =  7.0
+alpha =  91.0
+beta =  95.0
+gamma =  112.0
+
+k search path
+===
+{
+    "point_coords": {
+        "GAMMA": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "T": [
+            0.5,
+            0.5,
+            0.5
+        ],
+        "L": [
+            0.5,
+            0.0,
+            0.0
+        ],
+        "L_2": [
+            0.0,
+            -0.5,
+            0.0
+        ],
+        "L_4": [
+            0.0,
+            0.0,
+            -0.5
+        ],
+        "F": [
+            0.5,
+            0.0,
+            0.5
+        ],
+        "F_2": [
+            0.5,
+            0.5,
+            0.0
+        ],
+        "S_0": [
+            0.36496192910286607,
+            -0.36496192910286607,
+            0.0
+        ],
+        "S_2": [
+            0.6350380708971339,
+            0.0,
+            0.36496192910286607
+        ],
+        "S_4": [
+            0.36496192910286607,
+            0.0,
+            -0.36496192910286607
+        ],
+        "S_6": [
+            0.6350380708971339,
+            0.36496192910286607,
+            0.0
+        ],
+        "H_0": [
+            0.5,
+            -0.22992385820573213,
+            0.22992385820573213
+        ],
+        "H_2": [
+            0.7700761417942679,
+            0.22992385820573213,
+            0.5
+        ],
+        "H_4": [
+            0.7700761417942679,
+            0.5,
+            0.22992385820573213
+        ],
+        "H_6": [
+            0.5,
+            0.22992385820573213,
+            -0.22992385820573213
+        ],
+        "M_0": [
+            0.36496192910286607,
+            -0.22992385820573213,
+            0.36496192910286607
+        ],
+        "M_2": [
+            0.6350380708971339,
+            0.22992385820573213,
+            0.6350380708971339
+        ],
+        "M_4": [
+            0.7700761417942679,
+            0.36496192910286607,
+            0.36496192910286607
+        ],
+        "M_6": [
+            0.6350380708971339,
+            0.6350380708971339,
+            0.22992385820573213
+        ],
+        "M_8": [
+            0.36496192910286607,
+            0.36496192910286607,
+            -0.22992385820573213
+        ]
+    },
+    "path": [
+        [
+            "GAMMA",
+            "T"
+        ],
+        [
+            "T",
+            "H_2"
+        ],
+        [
+            "H_0",
+            "L"
+        ],
+        [
+            "L",
+            "GAMMA"
+        ],
+        [
+            "GAMMA",
+            "S_0"
+        ],
+        [
+            "S_2",
+            "F"
+        ],
+        [
+            "F",
+            "GAMMA"
+        ]
+    ],
+    "reciprocal_primitive_lattice": [
+        [
+            1.0577752964108027,
+            0.6107068521249133,
+            0.3762386186192197
+        ],
+        [
+            -1.0577752964108027,
+            0.6107068521249133,
+            0.3762386186192197
+        ],
+        [
+            0.0,
+            -1.2214137042498263,
+            0.3762386186192197
+        ]
+    ]
+}
+
+Primitive hkl for (101)
+===
+[0.66666667 0.66666667 0.66666667]
+
+Conventional k vector for (0.5, 0.5, 0)
+===
+[0.  0.5 1. ]
+
+k point in the middle of (0, 0, 0) -> (.5, .5, .5)
+===
+[0.24999266655910796, 0.24999266655910796, 0.24999266655910796]
+
+New list:
+===
+[1, 2, 3, 4, 5]
+Position of '4' in new list
+===
+3
+
+Optimized k vector alternatives
+===
+[[0.5, 0.5, 0.5]]
+Indicator distances of alternative k vectors
+===
+[0.2035291354469567]
+
+Optimized k vector alternatives
+===
+[[0.5, 0, 0.5], [0.5, 0.5, 0.5]]
+Indicator distances of alternative k vectors
+===
+[0.14445027774834382, 0.2035291354469567]
+
+Optimized k vector alternatives
+===
+[[0, 0, 0]]
+Indicator distances of alternative k vectors
+===
+[5.2384252444393985e-08]
+[Info] Searching over high symmetry points ...
+[Info] k point (primitive setting): GAMMA => [0.00000, 0.00000, 0.00000], Indicator distance: 0.00000, Threshold: 0.008
+[Info] Time elapsed: 0.00551295280456543 s
+
+Optimal candidate of k vector
+===
+([[0.0, 0.0, 0.0]], [5.2384252444393985e-08])
+[Info] Searching over high symmetry points ...
+[Info] k point (primitive setting): GAMMA => [0.00000, 0.00000, 0.00000], Indicator distance: 0.23532, Threshold: 1e-06
+[Info] k point (primitive setting): X => [0.50000, 0.00000, 0.50000], Indicator distance: 0.00000, Threshold: 1e-06
+[Info] Time elapsed: 0.0459439754486084 s
+
+Optimal candidate of k vector
+===
+k vector: [0.00000, 1.00000, 0.000000], Indicator distance: 3.72463E-17
+[Info] Searching over high symmetry points ...
+[Info] k point (primitive setting): GAMMA => [0.00000, 0.00000, 0.00000], Indicator distance: 0.27785, Threshold: 1e-06
+[Info] k point (primitive setting): A => [0.00000, 0.00000, 0.50000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] k point (primitive setting): K => [0.33333, 0.33333, 0.00000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] k point (primitive setting): H => [0.33333, 0.33333, 0.50000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] k point (primitive setting): H_2 => [0.33333, 0.33333, -0.50000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] k point (primitive setting): M => [0.50000, 0.00000, 0.00000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] k point (primitive setting): L => [0.50000, 0.00000, 0.50000], Indicator distance: 0.21438, Threshold: 1e-06
+[Info] Searching along the high symmetry path ...
+[Info] k path (primitive setting): ('GAMMA', 'M')
+[Info] Time elapsed: 0.29824113845825195 s
+
+Optimal candidate of k vector
+===
+k vector: [0.14000, 0.00000, 0.000000], Indicator distance: 2.21816E-16
